@@ -1,0 +1,17 @@
+C:\Users\Aspire\git\hotel-master-reservation\hotel-core-domain\src\main\java\com\solt\hotel\master\entity\Account.java
+C:\Users\Aspire\git\hotel-master-reservation\hotel-core-domain\src\main\java\com\solt\hotel\master\entity\RoomCharges.java
+C:\Users\Aspire\git\hotel-master-reservation\hotel-core-domain\src\main\java\com\solt\hotel\master\common\BaseRepository.java
+C:\Users\Aspire\git\hotel-master-reservation\hotel-core-domain\src\main\java\com\solt\hotel\master\common\BaseRepositoryImpl.java
+C:\Users\Aspire\git\hotel-master-reservation\hotel-core-domain\src\main\java\com\solt\hotel\master\repo\BuildingRepo.java
+C:\Users\Aspire\git\hotel-master-reservation\hotel-core-domain\src\main\java\com\solt\hotel\master\repo\FloorRepo.java
+C:\Users\Aspire\git\hotel-master-reservation\hotel-core-domain\src\main\java\com\solt\hotel\master\repo\AccountRepo.java
+C:\Users\Aspire\git\hotel-master-reservation\hotel-core-domain\src\main\java\com\solt\hotel\master\entity\RoomType.java
+C:\Users\Aspire\git\hotel-master-reservation\hotel-core-domain\src\main\java\com\solt\hotel\master\repo\RoomChargesRepo.java
+C:\Users\Aspire\git\hotel-master-reservation\hotel-core-domain\src\main\java\com\solt\hotel\master\entity\Facility.java
+C:\Users\Aspire\git\hotel-master-reservation\hotel-core-domain\src\main\java\com\solt\hotel\master\entity\Building.java
+C:\Users\Aspire\git\hotel-master-reservation\hotel-core-domain\src\main\java\com\solt\hotel\master\repo\RoomRepo.java
+C:\Users\Aspire\git\hotel-master-reservation\hotel-core-domain\src\main\java\com\solt\hotel\master\entity\Floor.java
+C:\Users\Aspire\git\hotel-master-reservation\hotel-core-domain\src\main\java\com\solt\hotel\master\repo\HotelRepo.java
+C:\Users\Aspire\git\hotel-master-reservation\hotel-core-domain\src\main\java\com\solt\hotel\master\repo\RoomTypeRepo.java
+C:\Users\Aspire\git\hotel-master-reservation\hotel-core-domain\src\main\java\com\solt\hotel\master\entity\Room.java
+C:\Users\Aspire\git\hotel-master-reservation\hotel-core-domain\src\main\java\com\solt\hotel\master\entity\Hotel.java
