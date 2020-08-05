@@ -5,18 +5,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.solt.hotel.master.common.BaseService;
-import com.solt.hotel.master.entity.Hotel;
-import com.solt.hotel.master.service.HotelService;
+import com.solt.hotel.master.entity.RoomType;
+import com.solt.hotel.master.service.RoomTypeService;
 
 @RestController
-@RequestMapping("/hotel")
-public class HotelApi extends BaseApi<Hotel, String>{
-
-	@Autowired
-	private HotelService service;
+@RequestMapping("/room-type")
+public class RoomTypeApi extends BaseApi<RoomType, String> {
 	
+	@Autowired
+	private RoomTypeService service;
+
 	@Override
-	protected BaseService<Hotel, String> service() {
+	protected BaseService<RoomType, String> service() {
 		return service;
 	}
 

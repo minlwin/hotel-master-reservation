@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import lombok.Data;
 
@@ -29,6 +30,10 @@ public class Hotel implements Serializable{
 
 	@NotEmpty(message = "Enter Hotel Location.")
 	private String location;
+	
+	@NotEmpty(message = "Photo can't empty")
+	@NotNull(message = "Photo can't null")
+	private String photo;
 
 	private String ranking;
 
