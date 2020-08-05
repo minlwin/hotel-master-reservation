@@ -1,7 +1,9 @@
 # Compiled class file
 *.class
-.classpath
-.project
+hotel-core-domain/.classpath
+hotel-core-domain/.project
+hotel-core-domain/.settings/org.eclipse.wst.common.component
+hotel-core-domain/target/classes/META-INF/maven/com.solt.hotel/hotel-core-domain/pom.properties
 
 # Log file
 *.log
