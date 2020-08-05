@@ -8,14 +8,16 @@ import { HotelFormComponent } from './views/hotel/hotel-form/hotel-form.componen
 
 
 const routes: Routes = [
-  {path: '', redirectTo: '/hotel', pathMatch: 'full'},
-  {path: 'hotel', component: HotelComponent},
-  {path: 'hotel/create', component: HotelFormComponent},
-  {path: 'hotel/:id', component: HotelDetailComponent},
-  {path: 'hotel/:id/edit', component: HotelFormComponent},
-  {path: 'sign-in', component: SignInComponent},
-  {path: 'sign-up', component: SignUpComponent},
-  {path: '**', redirectTo: '/hotel', pathMatch: 'full'}
+  { path: '', redirectTo: '/hotel', pathMatch: 'full'},
+  { path: 'hotel', component: HotelComponent},
+  { path: 'hotel/create', component: HotelFormComponent},
+  { path: 'hotel/:id', component: HotelDetailComponent},
+  { path: 'hotel/:id/edit', component: HotelFormComponent },
+  { path: 'hotel-detail', component: HotelDetailComponent},
+  { path: 'sign-in', component: SignInComponent},
+  { path: 'sign-up', component: SignUpComponent},
+  { path: '**', redirectTo: '/hotel', pathMatch: 'full' }
+  
 ];
 
 @NgModule({
