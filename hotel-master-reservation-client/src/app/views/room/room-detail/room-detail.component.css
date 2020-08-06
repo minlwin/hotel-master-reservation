@@ -1,0 +1,9 @@
+#roomimage {
+    height: 500px;
+    width: 1050px;
+    image-rendering: optimizeQuality;
+}
+
+#roomFacilitiesFont {
+    font-size: 1.5rem;
+}

@@ -12,6 +12,9 @@ import { HeaderComponent } from './views/header/header.component';
 import { FooterComponent } from './views/footer/footer.component';
 import { SignInComponent } from './views/account/sign-in/sign-in.component';
 import { SignUpComponent } from './views/account/sign-up/sign-up.component';
+import { BuildingFormComponent } from './views/building-form/building-form.component';
+import { RoomFormComponent } from './views/room/room-form/room-form.component';
+import { RoomDetailComponent } from './views/room/room-detail/room-detail.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +26,9 @@ import { SignUpComponent } from './views/account/sign-up/sign-up.component';
     FooterComponent,
     SignInComponent,
     SignUpComponent,
+    BuildingFormComponent,
+    RoomFormComponent,
+    RoomDetailComponent,
   ],
   imports: [
     BrowserModule,
