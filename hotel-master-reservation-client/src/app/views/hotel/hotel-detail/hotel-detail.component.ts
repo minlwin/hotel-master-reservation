@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormArray, FormControl, FormGroup } from '@angular/forms';
 
 declare let $: any;
 
@@ -8,14 +9,13 @@ declare let $: any;
   styleUrls: ['./hotel-detail.component.css']
 })
 export class HotelDetailComponent implements OnInit {
-
   
-
   constructor() { }
 
   ngOnInit(): void {
+   
   }
-
+  
   showForm(modalId) {
     $(modalId).modal('show');
   }
