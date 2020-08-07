@@ -12,16 +12,16 @@
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Name" formControlName="name">
                     </div>
-                    <div class=" form-group ">
-                        <input type="text " class="form-control " placeholder="Photo " formControlName="photo">
+                    <div class=" form-row mt-3 mb-3">
+                        <div class="col-6">
+                            <label for="">Photo</label>
+                            <input type="file" class="form-control-file" accept="image/*" multiple (change)="preview(fc.files)" #fc>
+                        </div>
                     </div>
                     <div formArrayName="others">
-                        <div class="form-row mt-3 mb-3 " *ngFor="let room of othersControl.controls; let i=index " [formGroupName]="i ">
-                            <div class="col-4 ">
-                                <input type="text " class="form-control " placeholder="Name " formControlName="otherName">
-                            </div>
-                            <div class="col-6 ">
-                                <input type="text " class="form-control " placeholder="Description " formControlName="otherDesc">
+                        <div class="form-row mt-3 mb-3 " *ngFor="let room of othersControl.controls; let i=index">
+                            <div class=" col-6 ">
+                                <input type="text " class="form-control " placeholder="Description " [formControlName]="i">
                             </div>
 
                             <div class="col-2 ">
@@ -36,7 +36,7 @@
                 </form>
             </div>
             <div class="modal-footer ">
-                <button type="button " class="btn btn-info " (click)="save() ">Save</button>
+                <button type="button " class="btn btn-info " (click)="save(fc.files) ">Save</button>
             </div>
         </div>
     </div>
