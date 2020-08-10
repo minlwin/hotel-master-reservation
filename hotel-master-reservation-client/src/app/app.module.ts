@@ -13,6 +13,9 @@ import { FooterComponent } from './views/footer/footer.component';
 import { SignInComponent } from './views/account/sign-in/sign-in.component';
 import { SignUpComponent } from './views/account/sign-up/sign-up.component';
 
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,8 +25,9 @@ import { SignUpComponent } from './views/account/sign-up/sign-up.component';
     HeaderComponent,
     FooterComponent,
     SignInComponent,
-    SignUpComponent,
-  ],
+    SignUpComponent,     
+   
+     ],
   imports: [
     BrowserModule,
     FormsModule,

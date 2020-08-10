@@ -7,6 +7,7 @@
         <wb-resource deploy-path="/" source-path="/src/main/java"/>
                 
         <wb-resource deploy-path="/" source-path="/src/main/resources"/>
+        <wb-resource deploy-path="/" source-path="/target/generated-test-sources/test-annotations"/>
             
     </wb-module>
     
