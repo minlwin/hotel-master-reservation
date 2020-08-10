@@ -3,9 +3,11 @@ package com.solt.hotel.master.entity;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -24,7 +26,8 @@ public class Hotel implements Serializable{
 	}
 	
 	@Id
-	private String code;
+	private String code = UUID.randomUUID().toString();
+	
 
 	@NotEmpty(message = "Enter Hotel Name.")
 	private String name;
@@ -32,11 +35,10 @@ public class Hotel implements Serializable{
 	@NotEmpty(message = "Enter Hotel Location.")
 	private String location;
 	
-	@NotEmpty(message = "Photo can't empty")
-	@NotNull(message = "Photo can't null")
-	private String photo;
+	@ElementCollection
+	private List<String> photos;
 
-	private String ranking;
+	private int ranking;
 	
 	@Column(columnDefinition = "TEXT")
 	private String description;

@@ -1,3 +1,6 @@
+import { CommonUtils } from './../../model/common/common-utils';
+import { HotelService } from './../../model/service/hotel.service';
+import { Hotel } from './../../model/dto/hotel';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +9,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./hotel.component.css']
 })
 export class HotelComponent implements OnInit {
+  
+  hotels: Hotel[];
 
-  constructor() { }
+  constructor(private hotelService: HotelService) { }
 
   ngOnInit(): void {
+    this.hotelService.findAll().subscribe(hotels => this.hotels = hotels)
+  }
+
+  getRankStar(rank: number){
+    return CommonUtils.convertNumberToStarEmoji(rank);
   }
 
 }

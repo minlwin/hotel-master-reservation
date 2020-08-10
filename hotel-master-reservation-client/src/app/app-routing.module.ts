@@ -19,7 +19,6 @@ const routes: Routes = [
   { path: 'sign-up', component: SignUpComponent},
   { path: 'room-detail', component: RoomDetailComponent},
   { path: '**', redirectTo: '/hotel', pathMatch: 'full' }
- 
 ];
 
 @NgModule({
