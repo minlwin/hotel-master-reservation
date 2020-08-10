@@ -1,0 +1,43 @@
+<div class="modal fade" id="modalAddNewRoom" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add New Room</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="roomForm ">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Name" formControlName="name">
+                    </div>
+                    <div class=" form-row mt-3 mb-3">
+                        <div class="col-6">
+                            <label for="">Photo</label>
+                            <input type="file" class="form-control-file" accept="image/*" multiple (change)="preview(fc.files)" #fc>
+                        </div>
+                    </div>
+                    <div formArrayName="others">
+                        <div class="form-row mt-3 mb-3 " *ngFor="let room of othersControl.controls; let i=index">
+                            <div class=" col-6 ">
+                                <input type="text " class="form-control " placeholder="Description " [formControlName]="i">
+                            </div>
+
+                            <div class="col-2 ">
+                                <button class="btn btn-danger " (click)="removeOther(i) ">&times;</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <button class="btn btn-secondary " (click)=addOther()>Add Other</button>
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer ">
+                <button type="button " class="btn btn-info " (click)="save(fc.files) ">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
