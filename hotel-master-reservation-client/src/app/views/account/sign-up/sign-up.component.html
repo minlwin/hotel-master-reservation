@@ -1,1 +1,65 @@
-<p>sign-up works!</p>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-4 border border-green">
+            <h3 class="text-center">Sign-Up</h3>
+            <hr>
+
+            <form (ngSubmit)="singup(SignUpForm)" #SignUpForm="ngForm">
+
+                <div class="form-group">
+                    <label for="">Login</label>
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <i class="fa fa-user"></i>
+                        </div>
+                        <input type="id" placeholder="Enter your id/name" class="form-control" ngModel id name="id"
+                            required #id="ngModel">
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+                    <label for="">Password</label>
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <i class="fa fa-key"></i>
+                        </div>
+                        <input type="password" placeholder="Enter your password" class="form-control" ngModel password
+                            name="password" required #password="ngModel">
+                    </div>
+                    <span *ngIf="password.errors?.password" class="text-danger">Wrong is password</span><br>
+                    <span *ngIf="password.invalid && password.touched" class="text-danger">password is required</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Confirm password</label>
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <i class="fa fa-key"></i>
+                        </div>
+                        <input type="confirmpassword" placeholder="Enter your confrim password" class="form-control"
+                            ngModel confirmpassword name="confirmpassword" required #confirmpassword="ngModel">
+                    </div>
+                    <span *ngIf="confirmpassword.errors?.confirmpassword" class="text-danger">Wrong is
+                        confirmpassword</span>
+                    <span *ngIf="confirmpassword.invalid && confirmpassword.touched" class="text-danger">Confirmpassword
+                        is required</span>
+                </div>
+                <hr>
+
+                <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+
+                <div class="form-group clearfix">
+                   <button type="submit" class="btn btn-block btn-primary" [disabled]="!SignUpForm.valid">Sign
+                        Up</button>
+                </div>
+
+                <div class="container signin">
+                    <p>Already have an account? <a href="sign-in" class="normal">Sign in</a></p>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

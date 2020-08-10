@@ -1,3 +1,5 @@
+
+
 import { Facility } from './facility';
 export class Hotel{
     code: string;

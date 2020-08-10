@@ -16,6 +16,9 @@ import { BuildingFormComponent } from './views/building-form/building-form.compo
 import { RoomFormComponent } from './views/room/room-form/room-form.component';
 import { RoomDetailComponent } from './views/room/room-detail/room-detail.component';
 
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
