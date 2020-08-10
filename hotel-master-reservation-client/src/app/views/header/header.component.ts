@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private router:Router,private route :ActivatedRoute) { }
   ngOnInit(): void {
+    
   }
+  signIn(){
+    this.router.navigate(['sign-in'],{relativeTo:this.route});
 
+  }
+  signUp(){
+    this.router.navigate(['sign-up'],{relativeTo:this.route});
+  }
 }

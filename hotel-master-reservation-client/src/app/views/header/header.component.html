@@ -1,1 +1,26 @@
-<p>header works!</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container-fluid ml-1 mr-1">
+        <div class="col">
+            <div class="row">
+                <a class="navbar-brand" [routerLink]="['/hotel']"> Hotel Reservation</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a [routerLink]="['/hotel/create']" class="nav-link "><i class="fa fa-plus "></i> New Hotel</a>
+                        </li>
+                        <li class="nav-item">
+                            <a routerLink="/sign-in" class="nav-link"><i class="fa fa-sign-in"></i> Sign In</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/sign-up">
+                                <i class="fa fa-user-plus "></i> Sign Up</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

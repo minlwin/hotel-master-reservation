@@ -15,9 +15,7 @@
                         <input type="id" placeholder="Enter your id/name" class="form-control" ngModel id name="id"
                             required #id="ngModel">
                     </div>
-
                 </div>
-
 
                 <div class="form-group">
                     <label for="">Password</label>
@@ -28,7 +26,7 @@
                         <input type="password" placeholder="Enter your password" class="form-control" ngModel password
                             name="password" required #password="ngModel">
                     </div>
-                    <span *ngIf="password.errors?.password" class="text-danger">Wrong is password</span><br>
+                         <span *ngIf="password.errors?.password" class="text-danger">Wrong is password</span><br>
                     <span *ngIf="password.invalid && password.touched" class="text-danger">password is required</span>
                 </div>
 
@@ -46,10 +44,7 @@
                     <span *ngIf="confirmpassword.invalid && confirmpassword.touched" class="text-danger">Confirmpassword
                         is required</span>
                 </div>
-                <hr>
-
-                <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-
+             
                 <div class="form-group clearfix">
                    <button type="submit" class="btn btn-block btn-primary" [disabled]="!SignUpForm.valid">Sign
                         Up</button>

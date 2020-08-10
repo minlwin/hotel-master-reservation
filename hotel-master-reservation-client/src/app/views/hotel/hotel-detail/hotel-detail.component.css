@@ -2,3 +2,7 @@
     width: 470px;
     height: 400px;
 }
+
+#jumbotron {
+    background-color: transparent;
+}
