@@ -19,7 +19,6 @@ export class SignUpComponent implements OnInit {
 
   singup(SignUpForm){
         console.log(SignUpForm)
-  
   }
   
 }

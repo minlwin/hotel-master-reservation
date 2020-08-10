@@ -1,5 +1,4 @@
 <div class="row justify-content-center mt-3">
-
     <div *ngIf="photos.length > 0" class="hotel-image mb-2">
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
@@ -18,17 +17,14 @@
         </div>
     </div>
     <div class="w-100"></div>
-    <div class="col-md-6">
-
+    <div class="col-md-8 col-lg-5">
         <form [formGroup]="hotelForm">
-
             <div class="form-group">
                 <label for="">Name</label>
                 <input type="text" class="form-control" formControlName="name">
             </div>
-
             <div class="form-row mb-2">
-                <div class="col-md-6">
+                <div class="col-md-8">
                     <label for="">Photos</label>
                     <input type="file" class="form-control-file" accept="image/*" multiple (change)="preview(fc.files)"
                         #fc>

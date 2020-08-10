@@ -76,7 +76,7 @@ export class HotelFormComponent implements OnInit {
   }
 
   save(files: File[]){
-    forkJoin(...[...files].map(file => this.uploadService.upload(file)))
+    this.uploadService.upload(...files)
       .pipe(switchMap(photos => {
         let hotel = this.hotelForm.value;
         hotel.photos = photos;

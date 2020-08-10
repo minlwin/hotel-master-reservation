@@ -1,7 +1,7 @@
+import { HotelService } from './../../../model/service/hotel.service';
+import { CommonUtils } from './../../../model/common/common-utils';
+import { Hotel } from './../../../model/dto/hotel';
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormControl, FormGroup } from '@angular/forms';
-
-declare let $: any;
 
 @Component({
   selector: 'app-hotel-detail',
@@ -10,14 +10,17 @@ declare let $: any;
 })
 export class HotelDetailComponent implements OnInit {
   
-  constructor() { }
+  hotel: Hotel
+
+  constructor(private hotelService: HotelService) { }
 
   ngOnInit(): void {
-   
-  }
-  
-  showForm(modalId) {
-    $(modalId).modal('show');
+   this.hotel = history.state.hotel
+   this.hotelService.currentHotel = this.hotel
   }
 
+  
+  getRankStar(rank: number){
+    return CommonUtils.convertNumberToStarEmoji(rank);
+  }
 }
