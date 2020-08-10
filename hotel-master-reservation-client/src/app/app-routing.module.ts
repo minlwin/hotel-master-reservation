@@ -15,6 +15,7 @@ const routes: Routes = [
   {path: 'hotel/:id/edit', component: HotelFormComponent},
   {path: 'sign-in', component: SignInComponent},
   {path: 'sign-up', component: SignUpComponent},
+  {path: 'hotel-form', component:HotelFormComponent},
   {path: '**', redirectTo: '/hotel', pathMatch: 'full'}
 ];
 

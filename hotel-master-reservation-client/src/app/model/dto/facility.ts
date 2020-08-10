@@ -1,5 +1,5 @@
 export class Facility{
-    id: number;
+    code: number;
     title: string;
     logo: string;
     facilities: string[];
