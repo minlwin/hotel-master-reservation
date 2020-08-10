@@ -1,6 +1,7 @@
 package com.solt.hotel.master.entity;
 
 import java.io.Serializable;
+import java.util.UUID;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -18,7 +19,7 @@ public class Building implements Serializable{
 	}
 
 	@Id
-	private String code;
+	private String code = UUID.randomUUID().toString();
 
 	private String name;
 

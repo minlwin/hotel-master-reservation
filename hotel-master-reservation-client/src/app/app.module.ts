@@ -12,9 +12,11 @@ import { HeaderComponent } from './views/header/header.component';
 import { FooterComponent } from './views/footer/footer.component';
 import { SignInComponent } from './views/account/sign-in/sign-in.component';
 import { SignUpComponent } from './views/account/sign-up/sign-up.component';
-import { BuildingFormComponent } from './views/building-form/building-form.component';
 import { RoomFormComponent } from './views/room/room-form/room-form.component';
 import { RoomDetailComponent } from './views/room/room-detail/room-detail.component';
+import { HotelManagementComponent } from './views/hotel-management/hotel-management.component';
+import { BuildingComponent } from './views/hotel/building/building.component';
+import { BuildingFormComponent } from './views/hotel/building/building-form/building-form.component';
 
 
 
@@ -29,9 +31,11 @@ import { RoomDetailComponent } from './views/room/room-detail/room-detail.compon
     FooterComponent,
     SignInComponent,
     SignUpComponent,
-    BuildingFormComponent,
     RoomFormComponent,
     RoomDetailComponent,
+    HotelManagementComponent,
+    BuildingComponent,
+    BuildingFormComponent,
   ],
   imports: [
     BrowserModule,

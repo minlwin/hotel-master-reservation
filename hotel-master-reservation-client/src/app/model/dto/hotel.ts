@@ -4,9 +4,9 @@ import { Facility } from './facility';
 export class Hotel{
     code: string;
     name: string;
-    photo: string;
+    photos: string;
     location: string;
     description: string;
-    ranking: string;
+    ranking: number;
     facilities: Facility[];
 }
