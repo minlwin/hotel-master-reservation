@@ -1,10 +1,13 @@
 package com.solt.hotel.master.entity;
 
 import java.io.Serializable;
+import java.util.UUID;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
 
@@ -18,10 +21,11 @@ public class Floor implements Serializable{
 	}
 
 	@Id
-	private String code;
+	private String code = UUID.randomUUID().toString();
 
 	private String name;
 
+	@JsonIgnore
 	@ManyToOne
 	private Building building;
 
