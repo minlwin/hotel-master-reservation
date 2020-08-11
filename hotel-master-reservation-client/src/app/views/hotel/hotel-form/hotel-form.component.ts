@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
 export class HotelFormComponent implements OnInit {
 
   hotelForm: FormGroup;
-  photos: String[] = [];
+  photos: string[] = [];
   pIndex: number;
 
 

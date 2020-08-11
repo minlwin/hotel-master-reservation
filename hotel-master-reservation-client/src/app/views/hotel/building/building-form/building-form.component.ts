@@ -14,7 +14,7 @@ export class BuildingFormComponent implements OnInit {
   hotel: Hotel;
   building: any;
 
-  constructor(private hotelService: HotelService, private buildingService: BuildingService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private hotelService: HotelService, private buildingService: BuildingService, private router: Router) { }
 
   ngOnInit(): void {
     this.hotel = this.hotelService.currentHotel;
@@ -26,10 +26,17 @@ export class BuildingFormComponent implements OnInit {
 
   save(formValue){
     let building = formValue;
+     building.floors = [];
+
+    for(let i =1; i <= building.floor; i ++){
+        building.floors.push({
+          name: 'FL-' + i,
+        })
+    }
     
     if(this.building) building.code = this.building.code
 
     building.hotel = this.hotel;
-    this.buildingService.save(building).subscribe(() => this.router.navigate(['../'], {relativeTo: this.route}))
+    this.buildingService.save(building).subscribe(() => this.router.navigate(['/hotel-management']))
   }
 }

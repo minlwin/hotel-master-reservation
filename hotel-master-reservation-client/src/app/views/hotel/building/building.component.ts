@@ -1,3 +1,4 @@
+import { Building } from './../../../model/dto/building';
 import { BuildingService } from './../../../model/service/building.service';
 import { HotelService } from './../../../model/service/hotel.service';
 import { Component, OnInit } from '@angular/core';
@@ -10,7 +11,7 @@ import { Hotel } from 'src/app/model/dto/hotel';
 })
 export class BuildingComponent implements OnInit{
 
-  buildings: any[];
+  buildings: Building[];
 
   constructor(private buildingService: BuildingService){}
 
