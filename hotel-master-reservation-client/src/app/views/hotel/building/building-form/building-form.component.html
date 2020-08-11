@@ -16,6 +16,10 @@
                 <input type="text" class="form-control" [ngModel]="building?.type" name="type">
             </div>
             <div class="form-group">
+                <label for="">Number Of Floor</label>
+                <input type="number" class="form-control" ngModel name="floor">
+            </div>
+            <div class="form-group">
                 <button class="btn btn-block btn-success" (click)="save(f.value)">Save</button>
             </div>
         </form>

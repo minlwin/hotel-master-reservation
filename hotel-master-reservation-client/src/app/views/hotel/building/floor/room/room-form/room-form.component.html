@@ -10,7 +10,12 @@
             <div class="modal-body">
                 <form [formGroup]="roomForm ">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Name" formControlName="name">
+                        <label for="">Floor</label>
+                        <input type="text" class="form-control" [value]="floor.name" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Room Name</label>
+                        <input type="text" class="form-control" formControlName="name">
                     </div>
                     <div class=" form-row mt-3 mb-3">
                         <div class="col-6">

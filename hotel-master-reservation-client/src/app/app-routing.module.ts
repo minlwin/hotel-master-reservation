@@ -1,3 +1,4 @@
+import { FloorComponent } from './views/hotel/building/floor/floor.component';
 import { BuildingComponent } from './views/hotel/building/building.component';
 import { HotelManagementComponent } from './views/hotel-management/hotel-management.component';
 import { SignUpComponent } from './views/account/sign-up/sign-up.component';
@@ -16,8 +17,9 @@ const routes: Routes = [
   { path: 'hotel', component: HotelComponent },
   {
     path: 'hotel-management', component: HotelManagementComponent, children: [
-      {path: 'building', component: BuildingComponent},
-      {path: 'building/new', component: BuildingFormComponent}
+      {path: '', component: BuildingComponent},
+      {path: 'building/new', component: BuildingFormComponent},
+      {path: 'building/:code/floor', component: FloorComponent}
     ]
   },
   { path: 'hotel/create', component: HotelFormComponent },

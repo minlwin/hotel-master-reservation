@@ -1,14 +1,14 @@
 <div class="row w-100">
     <h4>Building List</h4>
-    <button class="btn btn-success ml-auto" style="width: 100px;" [routerLink]="['./new']"><i class="fa fa-plus"></i> New</button>
+    <button class="btn btn-success ml-auto" style="width: 100px;" [routerLink]="['./building/new']"><i class="fa fa-plus"></i> New</button>
 </div>
 <hr>
 <div class="row w-100">
-    <div class="card m-2" *ngFor="let b of buildings" style="width: 250px;">
+    <div class="card m-2" *ngFor="let b of buildings" style="width: 250px;" [routerLink]="['./building', b.code, 'floor']" [state]="{building: b}">
         <div class="card-body">
             <div class="row w-100 justify-content-between">
                 <h5 class="ml-2">{{b.name}}</h5>
-                <span [routerLink]="['./new']" [state]="{building: b}"><i class="fa fa-edit"></i> </span>
+                <span [routerLink]="['./building/new']" [state]="{building: b}"><i class="fa fa-edit"></i> </span>
             </div>
             <p>{{b.type}}</p>
         </div>

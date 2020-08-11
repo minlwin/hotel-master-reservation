@@ -8,6 +8,8 @@ import java.util.UUID;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 import lombok.Data;
 
@@ -30,5 +32,11 @@ public class Room implements Serializable{
 
 	@ElementCollection
 	private List<String> photos;
+	
+	@ManyToOne
+	private Floor floor;
+	
+	@OneToOne
+	private RoomType roomType;
 
 }

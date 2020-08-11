@@ -1,11 +1,15 @@
 package com.solt.hotel.master.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import lombok.Data;
 
@@ -27,5 +31,9 @@ public class Building implements Serializable{
 
 	@ManyToOne
 	private Hotel hotel;
+	
+	@OneToMany(mappedBy = "building", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+	private List<Floor> floors = new ArrayList<>();
+	
 
 }
