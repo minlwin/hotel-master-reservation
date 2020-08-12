@@ -1,6 +1,10 @@
-    <div class="row w-100">
-        <div class="col-md-6">
-            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="row w-100 justify-content-center">
+        <div class="col-md-9">
+            <div class="row w-100 p-0 m-0 justify-content-between">
+                <h3>{{hotel.name}} <span style="font-size: 16px;">{{getRankStar(hotel.ranking)}}</span></h3>
+                <button class="btn btn-success" routerLink="/hotel-management">Manage</button>
+            </div>
+            <div id="carouselExampleControls" class="carousel slide mt-2" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item" [ngClass]="{active: i === 0}" *ngFor="let photo of hotel.photos; let i=index">
                         <img [src]="photo" class="d-block w-100" alt="" id="hotel-detail-image">
@@ -15,24 +19,13 @@
                     <span class="sr-only">Next</span>
                 </a>
             </div>
-        </div>
-        <div class="col-md-6">
             <div class="row justify-content-between">
-                <h3>{{hotel.name}} <span style="font-size: 16px;">{{getRankStar(hotel.ranking)}}</span></h3><br>
-                <button class="btn btn-success" routerLink="/hotel-management">Manage</button>
+                <br>
+                
             </div>
             <h3 class="mb-2">Hotel Description</h3>
             <hr>
             <p>{{hotel.description}}</p>
-
-            <h3 class="mt-2">Hotel Facilities</h3>
-            <hr>
-            <i class="fa fa-check"> Comfortable</i><br>
-            <i class="fa fa-check"> Balcony</i><br>
-            <i class="fa fa-check"> Near Transportation Stations</i><br>
-            <i class="fa fa-check"> Fair Prices</i><br>
-            <i class="fa fa-check"> Local Number 1</i><br>
-            <i class="fa fa-check"> Best Customer Reviews</i>
         </div>
     </div>
    

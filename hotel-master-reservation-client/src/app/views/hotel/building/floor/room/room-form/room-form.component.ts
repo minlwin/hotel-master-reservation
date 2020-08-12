@@ -1,7 +1,7 @@
 import { Floor } from './../../../../../../model/dto/building';
 import { RoomService } from './../../../../../../model/service/room.service';
 import { ImageUploadService } from './../../../../../../model/service/image-upload.service';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { FormArray, FormGroup, FormBuilder} from '@angular/forms';
 import { switchMap } from 'rxjs/operators';
 import { forkJoin } from 'rxjs';
@@ -17,9 +17,10 @@ declare let $:any;
 export class RoomFormComponent implements OnInit {
 
   floor: Floor;
-
-  photos: String[] = [];
+  photos: string[] = [];
   roomForm: FormGroup;
+
+  @Output() createdRoom = new EventEmitter();
 
   constructor(private fb: FormBuilder,private uploadService: ImageUploadService,
     private roomService: RoomService, private router: Router) { }
@@ -65,17 +66,15 @@ export class RoomFormComponent implements OnInit {
 
     for (let i = 0; i < otherValues.length; i++) other[i] = otherValues[i];
 
-    console.log(room)
-    $('#modalAddNewRoom').modal('hide');
+    room.others = other;
+    room.floor = this.floor;
 
-    // forkJoin(...[...files].map(file => this.uploadService.upload(file)))
-    //   .pipe(switchMap(photos => {
-    //     room.photos = photos;
-    //     room.others = other;
-    //     console.log(room)
-    //     return this.roomService.save(room)
-    //   })).subscribe(data => this.router.navigate(['/hotel']))
+    this.uploadService.upload(...files).pipe(switchMap(photos => {
+      room.photos = photos;
+      return this.roomService.save(room)
+    })).subscribe(() => {
+      this.createdRoom.emit();
+      $('#modalAddNewRoom').modal('hide');
+    })
   }
-  
-
 }

@@ -17,4 +17,7 @@ export class RoomService extends BaseService<Room>{
     return ROOM_API;
   }
   
+  findByFloor(floor: Floor){
+    return this._cache.filter(room => room.floor.code === floor.code)
+  }
 }
