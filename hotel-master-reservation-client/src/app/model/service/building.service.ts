@@ -2,7 +2,6 @@ import { Building } from './../dto/building';
 import { BUILDING_API } from './../common/api-constants';
 import { BaseService } from "../common/base.service";
 
-import { Hotel } from './../dto/hotel';
 import { Injectable } from '@angular/core';
 
 @Injectable({

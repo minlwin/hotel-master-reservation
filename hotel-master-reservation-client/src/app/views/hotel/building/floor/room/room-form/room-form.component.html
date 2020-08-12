@@ -17,6 +17,12 @@
                         <label for="">Room Name</label>
                         <input type="text" class="form-control" formControlName="name">
                     </div>
+                    <div class="form-group">
+                        <label for="">Room Type</label>
+                        <select name="" id="" class="form-control" formControlName="roomType">
+                            <option *ngFor="let type of roomTypes" [ngValue]="type">{{type.name}}</option>
+                        </select>
+                    </div>
                     <div class=" form-row mt-3 mb-3">
                         <div class="col-6">
                             <label for="">Photo</label>

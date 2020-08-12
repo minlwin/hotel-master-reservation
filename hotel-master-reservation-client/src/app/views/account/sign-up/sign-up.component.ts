@@ -1,7 +1,8 @@
+import { AccountService } from './../../../model/service/account.service';
 import { Account } from './../../../model/dto/account';
 import { Component, OnInit } from '@angular/core';
 import { Message } from '@angular/compiler/src/i18n/i18n_ast';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-up',
@@ -11,14 +12,14 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class SignUpComponent implements OnInit {
   
 
-  constructor() { }
+  constructor(private accountService: AccountService) { }
 
   ngOnInit(): void {
     
   }
 
-  singup(SignUpForm){
-        console.log(SignUpForm)
+  singup(signUpForm: NgForm){
+      this.accountService.save(signUpForm.value).subscribe(() => signUpForm.reset());
   }
   
 }

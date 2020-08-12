@@ -1,3 +1,5 @@
+import { RoomType } from './../../../../../../model/dto/room-type';
+import { RoomTypeService } from './../../../../../../model/service/room-type.service';
 import { Floor } from './../../../../../../model/dto/building';
 import { RoomService } from './../../../../../../model/service/room.service';
 import { ImageUploadService } from './../../../../../../model/service/image-upload.service';
@@ -19,19 +21,21 @@ export class RoomFormComponent implements OnInit {
   floor: Floor;
   photos: string[] = [];
   roomForm: FormGroup;
+  roomTypes: RoomType[];
 
   @Output() createdRoom = new EventEmitter();
 
   constructor(private fb: FormBuilder,private uploadService: ImageUploadService,
-    private roomService: RoomService, private router: Router) { }
+    private roomService: RoomService, private roomTypeService: RoomTypeService, private router: Router) { }
 
   ngOnInit(): void {
-
     this.roomService.floorChanged.subscribe(floor => this.floor = floor)
+    this.roomTypeService.findAll().subscribe(roomTypes => this.roomTypes = roomTypes)
 
     this.roomForm = this.fb.group({
       name: [''],
       photo: [''],
+      roomType: null,
       others: this.fb.array([])
     })
   }
