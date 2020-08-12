@@ -1,3 +1,4 @@
+import { RoomTypeComponent } from './views/hotel/building/floor/room/room-type/room-type.component';
 import { RoomFormComponent } from './views/hotel/building/floor/room/room-form/room-form.component';
 import { FloorComponent } from './views/hotel/building/floor/floor.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -20,9 +21,6 @@ import { BuildingComponent } from './views/hotel/building/building.component';
 import { BuildingFormComponent } from './views/hotel/building/building-form/building-form.component';
 import { RoomComponent } from './views/hotel/building/floor/room/room.component';
 
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +37,8 @@ import { RoomComponent } from './views/hotel/building/floor/room/room.component'
     BuildingFormComponent,
     FloorComponent,
     RoomComponent,
-    RoomFormComponent
+    RoomFormComponent,
+    RoomTypeComponent
   ],
   imports: [
     BrowserModule,

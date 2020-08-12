@@ -11,6 +11,10 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 import lombok.Data;
 
 @Data
@@ -18,9 +22,6 @@ import lombok.Data;
 public class Building implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-
-	public Building() {
-	}
 
 	@Id
 	private String code = UUID.randomUUID().toString();
@@ -35,5 +36,8 @@ public class Building implements Serializable{
 	@OneToMany(mappedBy = "building", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	private List<Floor> floors = new ArrayList<>();
 	
-
+	public void setFloors(List<Floor> floors) {
+		this.floors = floors;
+		this.floors.forEach(floor -> floor.setBuilding(this));
+	}
 }

@@ -1,7 +1,7 @@
 import { HotelService } from './../../../model/service/hotel.service';
 import { ImageUploadService } from './../../../model/service/image-upload.service';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
+import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 
 import { forkJoin } from 'rxjs'
 import { switchMap } from 'rxjs/operators'
@@ -30,11 +30,11 @@ export class HotelFormComponent implements OnInit {
 
   private intiForm() {
     this.hotelForm = this.fb.group({
-      name: [''],
-      ranking: [''],
-      description: [''],
-      location: [''],
-      facilities: this.fb.array([])
+      name: ['', Validators.required],
+      ranking: ['', Validators.required],
+      description: ['', Validators.required],
+      location: ['', Validators.required],
+      facilities: this.fb.array([], Validators.required)
     })
   }
   preview(files: File[]) {
@@ -57,8 +57,8 @@ export class HotelFormComponent implements OnInit {
 
   addFacility() {
     this.hotelFacilities.push(this.fb.group({
-      title: [''],
-      logo: [''],
+      title: ['', Validators.required],
+      logo: ['', Validators.required],
       facilities: this.fb.array([])
     }))
   }
