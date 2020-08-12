@@ -6,6 +6,9 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 import lombok.Data;
 
 @Data
@@ -20,10 +23,11 @@ public class Account implements Serializable{
 	@Id
 	private String login;
 	
+	@JsonProperty(access = Access.WRITE_ONLY)
 	@NotEmpty(message = "Please enter password!")
 	private String password;
 
-	private Role role;
+	private Role role = Role.Admin;
 
 	public enum Role {
 		Admin,

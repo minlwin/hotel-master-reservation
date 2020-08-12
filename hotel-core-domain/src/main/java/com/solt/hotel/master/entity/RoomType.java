@@ -39,5 +39,10 @@ public class RoomType implements Serializable{
 
 	@OneToMany(mappedBy = "roomType", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = true)
 	private List<RoomCharges> charges = new ArrayList<>();
+	
+	public void setCharges(List<RoomCharges> charges) {
+		this.charges = charges;
+		this.charges.forEach(charge -> charge.setRoomType(this));
+	}
 
 }

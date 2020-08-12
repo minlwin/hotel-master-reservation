@@ -8,6 +8,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 import lombok.Data;
 
 @Data
@@ -27,6 +30,7 @@ public class RoomCharges implements Serializable{
 
 	private String currency;
 
+	@JsonProperty(access = Access.WRITE_ONLY)
 	@ManyToOne
 	private RoomType roomType;
 
