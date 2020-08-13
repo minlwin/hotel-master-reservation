@@ -1,5 +1,7 @@
 package com.solt.hotel.master.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,5 +19,9 @@ public class RoomTypeService implements BaseService<RoomType, String> {
 	@Override
 	public BaseRepository<RoomType, String> repo() {
 		return repo;
+	}
+
+	public List<RoomType> findByHotelCode(String code) {
+		return repo.findByHotelCode(code);
 	}
 }

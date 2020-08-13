@@ -11,4 +11,9 @@ export class RoomTypeService extends BaseService<RoomType>{
        return ROOM_TYPE_API;
     }
 
+    findByHotelCode(hotelCode){
+        return this.http.get<RoomType[]>(this.url(),{
+            params: {hotelCode}
+        })
+    }
 }

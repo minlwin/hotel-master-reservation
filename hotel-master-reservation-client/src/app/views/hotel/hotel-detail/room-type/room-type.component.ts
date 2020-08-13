@@ -16,9 +16,8 @@ export class RoomTypeComponent implements OnInit {
   constructor(private roomTypeService: RoomTypeService) { }
 
   ngOnInit(): void {
-    this.roomTypeService.findAll().subscribe(
-      roomTypes => this.roomTypes = roomTypes
-    )
+    this.roomTypeService.findByHotelCode(this.hotel.code)
+      .subscribe(roomTypes => this.roomTypes = roomTypes)
   }
 
 }
