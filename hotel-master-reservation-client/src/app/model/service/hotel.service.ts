@@ -7,9 +7,6 @@ import { Injectable } from '@angular/core';
     providedIn: 'root'
 })
 export class HotelService extends BaseService<Hotel>{
-    currentHotel: Hotel;
-    
-   
     protected url(): string {
         return HOTEL_API;
     }

@@ -18,12 +18,9 @@ export class BuildingComponent implements OnInit{
   constructor(private buildingService: BuildingService, private hotelSerivce: HotelService){}
 
   ngOnInit(){
-    this.buildingService.findAll().subscribe(buildings => {
-      this.buildings = buildings
-    });
-    // this.buildingService.findByHotelCode(this.hotel.code)
-    //   .subscribe(
-    //     buildings => this.buildings = buildings
-    //   )
+    this.buildingService.findByHotelCode(this.hotel.code)
+      .subscribe(
+        buildings => this.buildings = buildings
+      )
   }
 }

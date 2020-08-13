@@ -19,6 +19,7 @@ export class RoomTypeFormComponent implements OnInit {
     private roomTypeService: RoomTypeService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.hotel = history.state.hotel
     this.initForm();
   }
 

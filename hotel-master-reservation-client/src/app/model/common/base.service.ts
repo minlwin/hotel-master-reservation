@@ -1,13 +1,9 @@
-import { tap } from 'rxjs/operators';
-import { Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable()
 export abstract class BaseService<T>{
-
     protected abstract url(): string;
-    dataChanged = new Subject<T>();
 
     constructor(protected http: HttpClient){}
 
@@ -20,8 +16,6 @@ export abstract class BaseService<T>{
     }
 
     findById(id){
-        return this.http.get<T>(`${this.url()}/${id}`).pipe(
-            tap(hotel => this.dataChanged.next(hotel))
-        )
+        return this.http.get<T>(`${this.url()}/${id}`)
     }
 }
