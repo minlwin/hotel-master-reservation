@@ -13,4 +13,8 @@ public interface BaseService<T, ID> {
 	default List<T> findAll(){
 		return repo().findAll();
 	}
+
+	default T findById(ID id) {
+		return repo().getOne(id);
+	}
 }

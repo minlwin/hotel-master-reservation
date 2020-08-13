@@ -1,5 +1,7 @@
 package com.solt.hotel.master.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,5 +21,7 @@ public class BuildingService implements BaseService<Building, String> {
 		return repo;
 	}
 	
-	
+	public List<Building> findByHotelCode(String code){
+		return repo.findByHotelCode(code);
+	}
 }
