@@ -1,0 +1,26 @@
+<div class="row w-100 justify-content-between">
+    <h3>Room Type</h3>
+    <button class="btn btn-success rounded-pill new-btn" [routerLink]="['./room-type/new']"
+        [state]="{hotel: hotel}"><i class="fa fa-plus"></i> New</button>
+</div>
+<hr/>
+<div class="row">
+    <table class="table table-bordered table-hover">
+        <thead class="thead-light">
+            <tr class="text-center">
+                <th>Name</th>
+                <th>Bed Type</th>
+                <th>Total Beds</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let type of roomTypes">
+                <td class="text-capitalize">{{type.name}}</td>
+                <td class="text-capitalize">{{type.bedType}}</td>
+                <td class="text-right">{{type.beds}}</td>
+                <td class="text-center"><a href="">Show Detail</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

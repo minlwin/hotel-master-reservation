@@ -1,7 +1,9 @@
-.card{
-    width: 32%;
+.hotel-image{
+    width: 270px;
+    height: 230px;
+    object-fit: cover;
 }
 
-img{
-    height: 250px;
+.media-body{
+    font-size: 18px;
 }

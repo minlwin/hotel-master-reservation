@@ -1,7 +1,8 @@
+import { Hotel } from './../../../model/dto/hotel';
 import { Building } from './../../../model/dto/building';
 import { BuildingService } from './../../../model/service/building.service';
 import { HotelService } from './../../../model/service/hotel.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-building',
@@ -11,13 +12,18 @@ import { Component, OnInit } from '@angular/core';
 export class BuildingComponent implements OnInit{
 
   buildings: Building[];
+  @Input() hotel: Hotel;
 
 
   constructor(private buildingService: BuildingService, private hotelSerivce: HotelService){}
 
   ngOnInit(){
     this.buildingService.findAll().subscribe(buildings => {
-      this.buildings = buildings.filter(b => b.hotel.code === this.hotelSerivce.currentHotel.code)
-    })
+      this.buildings = buildings
+    });
+    // this.buildingService.findByHotelCode(this.hotel.code)
+    //   .subscribe(
+    //     buildings => this.buildings = buildings
+    //   )
   }
 }

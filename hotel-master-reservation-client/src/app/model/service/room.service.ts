@@ -18,6 +18,6 @@ export class RoomService extends BaseService<Room>{
   }
   
   findByFloor(floor: Floor){
-    return this._cache.filter(room => room.floor.code === floor.code)
+    return null;
   }
 }

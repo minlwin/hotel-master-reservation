@@ -1,24 +1,24 @@
-import { RoomTypeService } from './../../../../../../model/service/room-type.service';
-import { Hotel } from './../../../../../../model/dto/hotel';
-import { HotelService } from './../../../../../../model/service/hotel.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { HotelService } from './../../../../../model/service/hotel.service';
+import { RoomTypeService } from './../../../../../model/service/room-type.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormArray, FormBuilder, Validators } from '@angular/forms';
+import { Hotel } from '../../../../../model/dto/hotel';
 
 @Component({
-  selector: 'app-room-type',
-  templateUrl: './room-type.component.html',
-  styleUrls: ['./room-type.component.css']
+  selector: 'app-room-type-form',
+  templateUrl: './room-type-form.component.html',
+  styleUrls: ['./room-type-form.component.css']
 })
-export class RoomTypeComponent implements OnInit {
+export class RoomTypeFormComponent implements OnInit {
 
   roomTypeForm: FormGroup;
-  hotels: Hotel[]
+  hotel: Hotel
 
-  constructor(private fb: FormBuilder, private hotelService: HotelService
-    , private roomTypeService: RoomTypeService) { }
+  constructor(private fb: FormBuilder,
+    private roomTypeService: RoomTypeService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.hotelService.findAll().subscribe(hotels => this.hotels = hotels)
     this.initForm();
   }
 
@@ -69,7 +69,6 @@ export class RoomTypeComponent implements OnInit {
 
   private initForm() {
     this.roomTypeForm = this.fb.group({
-      hotel: null,
       name: ['', Validators.required],
       bedType: ['', Validators.required],
       beds: ['', Validators.required],
@@ -79,8 +78,12 @@ export class RoomTypeComponent implements OnInit {
   }
 
   save() {
-    console.log(this.roomTypeForm.value)
-    this.roomTypeService.save(this.roomTypeForm.value).subscribe(() => this.roomTypeForm.reset())
+    let roomType = this.roomTypeForm.value;
+    roomType.hotel = this.hotel;
+    this.roomTypeService.save(roomType).subscribe(() => {
+      this.roomTypeForm.reset();
+      this.router.navigate(['../../'], {relativeTo: this.route})
+    })
   }
 
 

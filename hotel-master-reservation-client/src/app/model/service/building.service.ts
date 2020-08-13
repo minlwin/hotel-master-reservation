@@ -12,4 +12,9 @@ export class BuildingService extends BaseService<Building>{
        return BUILDING_API;
     }
 
+    findByHotelCode(hotelCode){
+        return this.http.get<Building[]>(this.url(), {
+            params: {hotelCode}
+        })
+    }
 }

@@ -1,3 +1,5 @@
+import { switchMap } from 'rxjs/operators';
+import { ActivatedRoute, Params } from '@angular/router';
 import { HotelService } from './../../../model/service/hotel.service';
 import { CommonUtils } from './../../../model/common/common-utils';
 import { Hotel } from './../../../model/dto/hotel';
@@ -9,18 +11,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./hotel-detail.component.css']
 })
 export class HotelDetailComponent implements OnInit {
-  
+
   hotel: Hotel
 
-  constructor(private hotelService: HotelService) { }
+  constructor(private hotelService: HotelService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-   this.hotel = history.state.hotel
-   this.hotelService.currentHotel = this.hotel
+    this.route.params.pipe(switchMap((params: Params) => {
+      let code = params['code'];
+      return this.hotelService.findById(code)
+    })).subscribe(hotel => this.hotel = hotel)
   }
 
-  
-  getRankStar(rank: number){
+
+  getRankStar(rank: number) {
     return CommonUtils.convertNumberToStarEmoji(rank);
   }
 }

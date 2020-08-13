@@ -1,7 +1,8 @@
 <div class="row w-100 mb-2 justify-content-between">
-    <h6>Room List</h6>
-    <button class="btn btn-success" (click)="showModal('#modalAddNewRoom')"><i class="fa fa-plus"></i> New</button>
+    <h4>Rooms</h4>
+    <button class="btn btn-success rounded-pill" style="width: 100px;" (click)="showModal('#modalAddNewRoom')"><i class="fa fa-plus"></i> New</button>
 </div>
+<hr>
 <div class="row w-100">
     <div class="card" style="width: 200px; height: 200px;" *ngFor="let room of rooms">
         <img class="card-img" [src]="room.photos[0]" alt="" style="width: inherit; height: inherit; object-fit: cover;">

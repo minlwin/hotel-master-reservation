@@ -20,6 +20,12 @@ export class BuildingFormComponent implements OnInit {
     this.hotel = this.hotelService.currentHotel;
     this.building = history.state.building
 
+    this.hotelService.dataChanged.subscribe(
+      hotel => this.hotel = hotel
+    )
+
+
+
     if(this.building)
       this.hotel = this.building.hotel
   }

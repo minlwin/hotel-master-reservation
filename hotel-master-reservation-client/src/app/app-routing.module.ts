@@ -1,4 +1,3 @@
-import { RoomTypeComponent } from './views/hotel/building/floor/room/room-type/room-type.component';
 import { FloorComponent } from './views/hotel/building/floor/floor.component';
 import { BuildingComponent } from './views/hotel/building/building.component';
 import { HotelManagementComponent } from './views/hotel-management/hotel-management.component';
@@ -11,6 +10,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HotelFormComponent } from './views/hotel/hotel-form/hotel-form.component';
 import { RoomDetailComponent } from './views/room/room-detail/room-detail.component';
 import { BuildingFormComponent } from './views/hotel/building/building-form/building-form.component';
+import { RoomTypeFormComponent } from './views/hotel/hotel-detail/room-type/room-type-form/room-type-form.component';
 
 
 const routes: Routes = [
@@ -20,14 +20,15 @@ const routes: Routes = [
     path: 'hotel-management', component: HotelManagementComponent, children: [
       {path: '', component: BuildingComponent},
       {path: 'building/new', component: BuildingFormComponent},
-      {path: 'building/:code/floor', component: FloorComponent}
+      
     ]
   },
   { path: 'hotel/create', component: HotelFormComponent },
-  { path: 'hotel/:id', component: HotelDetailComponent },
+  { path: 'hotel/:code', component: HotelDetailComponent },
+  { path : 'hotel/:code/building/new', component: BuildingFormComponent},
+  { path: 'hotel/:code/building/:code/floor', component: FloorComponent },
+  { path: 'hotel/:code/room-type/new', component: RoomTypeFormComponent },
   { path: 'hotel/:id/edit', component: HotelFormComponent },
-  { path: 'hotel-detail', component: HotelDetailComponent },
-  { path: 'room-type', component: RoomTypeComponent},
   { path: 'sign-in', component: SignInComponent },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'room-detail', component: RoomDetailComponent },

@@ -3,21 +3,21 @@ import { RoomService } from './../../../../../model/service/room.service';
 import { Floor } from './../../../../../model/dto/building';
 import { Component, OnInit, Input, DoCheck } from '@angular/core';
 
-declare let $:any;
+declare let $: any;
 
 @Component({
   selector: 'app-room',
   templateUrl: './room.component.html',
   styleUrls: ['./room.component.css']
 })
-export class RoomComponent implements OnInit{
+export class RoomComponent implements OnInit {
 
   floor: Floor;
   rooms: Room[];
 
   constructor(private roomService: RoomService) { }
 
-  ngOnInit(){
+  ngOnInit() {
     this.fetchRoom();
     this.roomService.floorChanged.subscribe(
       floor => {
@@ -27,11 +27,14 @@ export class RoomComponent implements OnInit{
     )
   }
 
-  showModal(modalId){
+  showModal(modalId) {
     $(modalId).modal('toggle')
   }
 
-  fetchRoom(){
-    this.roomService.findAll().subscribe(rooms => this.rooms = rooms.filter(room => room.floor.code === this.floor?.code))
+  fetchRoom() {
+    this.roomService.findAll().subscribe(rooms => {
+     this.rooms = rooms.filter(room => room.floor?.code === this.floor?.code)
+    }
+    )
   }
 }

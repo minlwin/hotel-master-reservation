@@ -1,8 +1,10 @@
-#hotel-detail-image {
-    width: 470px;
-    height: 400px;
+.carousel-item > img{
+    height: 250px;
+    object-fit: cover;
 }
 
-#jumbotron {
-    background-color: transparent;
+.description{
+    text-indent: 5em;
+    letter-spacing: 1px;
+    font-size: 16px;
 }
