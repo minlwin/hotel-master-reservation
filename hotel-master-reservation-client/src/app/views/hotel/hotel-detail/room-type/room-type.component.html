@@ -11,7 +11,7 @@
                 <th>Name</th>
                 <th>Bed Type</th>
                 <th>Total Beds</th>
-                <th>Action</th>
+                <th>Detail</th>
             </tr>
         </thead>
         <tbody>
@@ -19,8 +19,9 @@
                 <td class="text-capitalize">{{type.name}}</td>
                 <td class="text-capitalize">{{type.bedType}}</td>
                 <td class="text-right">{{type.beds}}</td>
-                <td class="text-center"><a href="">Show Detail</a></td>
+                <td class="text-center"><a (click)="showDetail(type)" style="cursor: pointer; color: blue;">View</a></td>
             </tr>
         </tbody>
     </table>
 </div>
+<app-room-type-detail [roomType]="currentRoomType"></app-room-type-detail>

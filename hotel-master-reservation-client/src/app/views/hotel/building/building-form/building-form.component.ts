@@ -1,5 +1,5 @@
 import { BuildingService } from './../../../../model/service/building.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Hotel } from 'src/app/model/dto/hotel';
 import { HotelService } from 'src/app/model/service/hotel.service';
@@ -14,7 +14,8 @@ export class BuildingFormComponent implements OnInit {
   hotel: Hotel;
   building: any;
 
-  constructor(private hotelService: HotelService, private buildingService: BuildingService, private router: Router) { }
+  constructor(private hotelService: HotelService, private buildingService: BuildingService, 
+    private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.hotel = history.state.hotel
@@ -37,6 +38,6 @@ export class BuildingFormComponent implements OnInit {
     if(this.building) building.code = this.building.code
 
     building.hotel = this.hotel;
-    this.buildingService.save(building).subscribe(() => this.router.navigate(['/hotel-management']))
+    this.buildingService.save(building).subscribe(() => this.router.navigate(['../../'], { relativeTo: this.route }))
   }
 }

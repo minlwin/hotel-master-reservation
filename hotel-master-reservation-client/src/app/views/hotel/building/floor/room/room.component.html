@@ -4,9 +4,11 @@
 </div>
 <hr>
 <div class="row w-100">
-    <div class="card" style="width: 200px; height: 200px;" *ngFor="let room of rooms">
-        <img class="card-img" [src]="room.photos[0]" alt="" style="width: inherit; height: inherit; object-fit: cover;">
-        <h6 class="card-header">{{room.name}}</h6>
-    </div>
+   <div class="card col-6" *ngFor="let room of rooms">
+        <div class="card-body text-center">
+            <h5 class="text-capitalize">{{room.name}}</h5>
+            <p>{{room.roomType.name}}</p>
+        </div>
+   </div>
 </div>
 <app-room-form (createdRoom)="fetchRoom()"></app-room-form>

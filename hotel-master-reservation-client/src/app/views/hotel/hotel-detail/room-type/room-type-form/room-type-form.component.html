@@ -1,10 +1,8 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-5  ">
-
             <form [formGroup]="roomTypeForm" action="">
-
-                <h4 class="text-center">Room Type</h4>
+                <h4 class="text-center text-uppercase">Room Type Form</h4>
                 <hr>
                 <div class="form-group">
                     <label for="">Hotel</label>
@@ -15,7 +13,8 @@
                         <span style="color: black;">(*)</span>
                     </label>
                     <input type="text" class="form-control" formControlName="name" required>
-                    <span style="color: red;" *ngIf="roomTypeForm.controls.name.errors && roomTypeForm.controls.name.touched">
+                    <span style="color: red;"
+                        *ngIf="roomTypeForm.controls.name.errors && roomTypeForm.controls.name.touched">
                         *Name is required"
                     </span>
                 </div>
@@ -34,11 +33,12 @@
                         <span style="color: black;">(*)</span>
                     </label>
                     <input type="text" class="form-control" formControlName="beds" required>
-                    <span style="color: red;" *ngIf="roomTypeForm.controls.beds.errors && roomTypeForm.controls.beds.touched">
+                    <span style="color: red;"
+                        *ngIf="roomTypeForm.controls.beds.errors && roomTypeForm.controls.beds.touched">
                         * Beds is required*
                     </span>
                 </div>
-               
+
                 <div formArrayName="facilities">
                     <div class="form-row mb-2">
                         <label class="mr-auto" for="">Room Facilities</label>
@@ -64,7 +64,7 @@
                                     Facitity</button>
                                 <div class="row no-gutters mb-2"
                                     *ngFor="let sfc of subFacilities(parentIndex).controls; let childIndex=index">
-                                    <div class="col-11 mr-1">
+                                    <div class="col-10 mr-1">
                                         <input type="text" class="form-control" [formControlName]="childIndex">
                                     </div>
                                     <div class="col">

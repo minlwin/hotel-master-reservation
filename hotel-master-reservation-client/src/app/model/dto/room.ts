@@ -1,3 +1,4 @@
+import { RoomType } from './room-type';
 import { Floor } from './building';
 export class Room{
   code: number;
@@ -5,4 +6,5 @@ export class Room{
   others: {[key: string]: string};
   photos: string[];
   floor: Floor;
+  roomType: RoomType;
 }

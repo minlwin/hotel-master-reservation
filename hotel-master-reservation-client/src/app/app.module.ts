@@ -15,12 +15,12 @@ import { HeaderComponent } from './views/header/header.component';
 import { FooterComponent } from './views/footer/footer.component';
 import { SignInComponent } from './views/account/sign-in/sign-in.component';
 import { SignUpComponent } from './views/account/sign-up/sign-up.component';
-import { RoomDetailComponent } from './views/room/room-detail/room-detail.component';
 import { HotelManagementComponent } from './views/hotel-management/hotel-management.component';
 import { BuildingComponent } from './views/hotel/building/building.component';
 import { BuildingFormComponent } from './views/hotel/building/building-form/building-form.component';
 import { RoomComponent } from './views/hotel/building/floor/room/room.component';
 import { RoomTypeComponent } from './views/hotel/hotel-detail/room-type/room-type.component';
+import { RoomTypeDetailComponent } from './views/hotel/hotel-detail/room-type/room-type-detail/room-type-detail.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,6 @@ import { RoomTypeComponent } from './views/hotel/hotel-detail/room-type/room-typ
     FooterComponent,
     SignInComponent,
     SignUpComponent,
-    RoomDetailComponent,
     HotelManagementComponent,
     BuildingComponent,
     BuildingFormComponent,
@@ -40,7 +39,8 @@ import { RoomTypeComponent } from './views/hotel/hotel-detail/room-type/room-typ
     RoomComponent,
     RoomFormComponent,
     RoomTypeComponent,
-    RoomTypeFormComponent
+    RoomTypeFormComponent,
+    RoomTypeDetailComponent
   ],
   imports: [
     BrowserModule,

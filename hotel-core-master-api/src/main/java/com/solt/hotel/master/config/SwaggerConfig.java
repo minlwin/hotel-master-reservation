@@ -1,4 +1,4 @@
-package com.solt.hotel.master;
+package com.solt.hotel.master.config;
 
 import java.util.ArrayList;
 

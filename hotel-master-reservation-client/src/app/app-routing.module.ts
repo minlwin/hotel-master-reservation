@@ -8,7 +8,6 @@ import { HotelComponent } from './views/hotel/hotel.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HotelFormComponent } from './views/hotel/hotel-form/hotel-form.component';
-import { RoomDetailComponent } from './views/room/room-detail/room-detail.component';
 import { BuildingFormComponent } from './views/hotel/building/building-form/building-form.component';
 import { RoomTypeFormComponent } from './views/hotel/hotel-detail/room-type/room-type-form/room-type-form.component';
 
@@ -31,7 +30,6 @@ const routes: Routes = [
   { path: 'hotel/:id/edit', component: HotelFormComponent },
   { path: 'sign-in', component: SignInComponent },
   { path: 'sign-up', component: SignUpComponent },
-  { path: 'room-detail', component: RoomDetailComponent },
   { path: '**', redirectTo: '/hotel', pathMatch: 'full' }
 ];
 

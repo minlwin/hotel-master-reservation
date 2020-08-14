@@ -3,6 +3,8 @@ import { RoomType } from './../../../../model/dto/room-type';
 import { RoomTypeService } from './../../../../model/service/room-type.service';
 import { Component, OnInit, Input } from '@angular/core';
 
+declare let $: any;
+
 @Component({
   selector: 'app-room-type',
   templateUrl: './room-type.component.html',
@@ -12,6 +14,7 @@ export class RoomTypeComponent implements OnInit {
 
   @Input() hotel: Hotel;
   roomTypes: RoomType[];
+  currentRoomType: RoomType;
 
   constructor(private roomTypeService: RoomTypeService) { }
 
@@ -20,4 +23,8 @@ export class RoomTypeComponent implements OnInit {
       .subscribe(roomTypes => this.roomTypes = roomTypes)
   }
 
+  showDetail(roomType){
+    this.currentRoomType = roomType;
+    $('#roomTypeDetailModal').modal('toggle')
+  }
 }

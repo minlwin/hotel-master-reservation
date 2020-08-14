@@ -1,4 +1,4 @@
-package com.solt.hotel.master;
+package com.solt.hotel.master.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
