@@ -1,3 +1,4 @@
+import { AuthService } from './../../../model/service/auth.service';
 import { switchMap } from 'rxjs/operators';
 import { ActivatedRoute, Params } from '@angular/router';
 import { HotelService } from './../../../model/service/hotel.service';
@@ -14,7 +15,7 @@ export class HotelDetailComponent implements OnInit {
 
   hotel: Hotel
 
-  constructor(private hotelService: HotelService, private route: ActivatedRoute) { }
+  constructor(public authService: AuthService,private hotelService: HotelService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.route.params.pipe(switchMap((params: Params) => {

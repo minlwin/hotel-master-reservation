@@ -44,5 +44,5 @@
     </div>
 
     <app-room-type [hotel]="hotel"></app-room-type>
-    <app-building [hotel]="hotel"></app-building>
+    <app-building [hotel]="hotel" *ngIf="authService.isLogin"></app-building>
 </div>

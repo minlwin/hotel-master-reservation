@@ -1,10 +1,11 @@
+import { AuthInterceptor } from './model/service/auth-interceptor';
 import { RoomTypeFormComponent } from './views/hotel/hotel-detail/room-type/room-type-form/room-type-form.component';
 import { RoomFormComponent } from './views/hotel/building/floor/room/room-form/room-form.component';
 import { FloorComponent } from './views/hotel/building/floor/floor.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms'
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -49,7 +50,9 @@ import { RoomTypeDetailComponent } from './views/hotel/hotel-detail/room-type/ro
     HttpClientModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

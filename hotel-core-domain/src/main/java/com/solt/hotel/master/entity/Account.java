@@ -3,6 +3,8 @@ package com.solt.hotel.master.entity;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
 
@@ -27,7 +29,9 @@ public class Account implements Serializable{
 	@NotEmpty(message = "Please enter password!")
 	private String password;
 
+	@Enumerated(EnumType.STRING)
 	private Role role = Role.Admin;
+	private boolean enable;
 
 	public enum Role {
 		Admin,

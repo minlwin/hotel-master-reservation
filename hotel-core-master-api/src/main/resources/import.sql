@@ -1,0 +1,1 @@
+insert into account(login, password, role, enable) values('Admin', '$2a$10$ZMX8LWtoNWZT.8lhurgltOQ7q/Es96hSgzW/mrTRnP/LA9m71Etp2', 'Admin', true);

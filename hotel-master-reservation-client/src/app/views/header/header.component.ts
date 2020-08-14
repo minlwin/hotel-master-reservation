@@ -1,3 +1,4 @@
+import { AuthService } from './../../model/service/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -8,7 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private router:Router,private route :ActivatedRoute) { }
+  constructor(public authService: AuthService,private router:Router,private route :ActivatedRoute) { }
   ngOnInit(): void {
     
   }

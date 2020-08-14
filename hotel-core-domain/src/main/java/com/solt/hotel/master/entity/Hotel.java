@@ -38,10 +38,12 @@ public class Hotel implements Serializable{
 	private List<String> photos;
 
 	private int ranking;
+	private String phone;
+	private String email;
 	
 	@Column(columnDefinition = "TEXT")
 	private String description;
-
+	
 	@OneToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	private List<Facility> facilities = new ArrayList<>();
 	

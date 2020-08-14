@@ -1,6 +1,6 @@
 <div class="row w-100 justify-content-between">
     <h3>Room Type</h3>
-    <button class="btn btn-success rounded-pill new-btn" [routerLink]="['./room-type/new']"
+    <button *ngIf="authService.isLogin" class="btn btn-success rounded-pill new-btn" [routerLink]="['./room-type/new']"
         [state]="{hotel: hotel}"><i class="fa fa-plus"></i> New</button>
 </div>
 <hr/>

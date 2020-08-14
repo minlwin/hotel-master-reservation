@@ -1,3 +1,4 @@
+import { AuthService } from './../../../../model/service/auth.service';
 import { Hotel } from './../../../../model/dto/hotel';
 import { RoomType } from './../../../../model/dto/room-type';
 import { RoomTypeService } from './../../../../model/service/room-type.service';
@@ -16,7 +17,7 @@ export class RoomTypeComponent implements OnInit {
   roomTypes: RoomType[];
   currentRoomType: RoomType;
 
-  constructor(private roomTypeService: RoomTypeService) { }
+  constructor(public authService: AuthService,private roomTypeService: RoomTypeService) { }
 
   ngOnInit(): void {
     this.roomTypeService.findByHotelCode(this.hotel.code)

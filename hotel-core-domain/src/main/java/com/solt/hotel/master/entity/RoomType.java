@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.UUID;
 
 import javax.persistence.CascadeType;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -33,6 +34,9 @@ public class RoomType implements Serializable{
 
 	@ManyToOne
 	private Hotel hotel;
+	
+	@ElementCollection
+	private List<String> photos;
 
 	@OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = true)
 	private List<Facility> facilities = new ArrayList<>();

@@ -7,6 +7,7 @@ export class RoomType{
     bedType: string;
     beds: number;
     hotel: Hotel;
+    photos: string[];
     facilities: Facility[];
     charges: RoomCharges[];
 }

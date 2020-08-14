@@ -28,8 +28,6 @@ public class Facility implements Serializable {
 	@Column(unique = true, nullable = false)
 	private String title;
 
-	private String logo;
-
 	@ElementCollection
 	private List<String> facilities;
 

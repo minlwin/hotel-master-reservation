@@ -32,6 +32,8 @@ export class HotelFormComponent implements OnInit {
     this.hotelForm = this.fb.group({
       name: ['', Validators.required],
       ranking: ['', Validators.required],
+      phone: '',
+      email: '',
       description: ['', Validators.required],
       location: ['', Validators.required],
       facilities: this.fb.array([], Validators.required)
@@ -58,7 +60,6 @@ export class HotelFormComponent implements OnInit {
   addFacility() {
     this.hotelFacilities.push(this.fb.group({
       title: ['', Validators.required],
-      logo: ['', Validators.required],
       facilities: this.fb.array([])
     }))
   }

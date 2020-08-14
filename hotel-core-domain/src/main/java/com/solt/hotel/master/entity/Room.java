@@ -1,7 +1,6 @@
 package com.solt.hotel.master.entity;
 
 import java.io.Serializable;
-import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -30,9 +29,6 @@ public class Room implements Serializable{
 	@ElementCollection
 	private Map<String, String> others;
 
-	@ElementCollection
-	private List<String> photos;
-	
 	@ManyToOne
 	private Floor floor;
 	

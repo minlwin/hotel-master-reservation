@@ -51,13 +51,9 @@
                             <div class="col-1 offset-11">
                                 <span (click)="removeFacility(parentIndex)"><i class="fa fa-times"></i></span>
                             </div>
-                            <div class="col-6">
+                            <div class="col-12">
                                 <label for="">Title</label>
                                 <input type="text" class="form-control" formControlName="title">
-                            </div>
-                            <div class="col-6">
-                                <label for="">Facility Logo</label>
-                                <input type="text" class="form-control" formControlName="logo">
                             </div>
                             <div class="col-12" formArrayName="facilities">
                                 <button class="btn btn-success my-2" (click)="addSubFacility(parentIndex)">Add

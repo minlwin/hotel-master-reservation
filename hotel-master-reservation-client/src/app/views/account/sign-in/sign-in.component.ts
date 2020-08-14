@@ -1,3 +1,5 @@
+import { Router, ActivatedRoute } from '@angular/router';
+import { AuthService } from './../../../model/service/auth.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,12 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignInComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthService, 
+    private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
   }
-  singin(SignInForm){
-    console.log(SignInForm)
+  singin(formData){
+    this.authService.login(formData).subscribe({
+      next: next => this.router.navigate(['/hotel']),
+    });
   }
 
 }
