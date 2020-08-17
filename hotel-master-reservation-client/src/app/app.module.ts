@@ -1,4 +1,6 @@
-import { AuthInterceptor } from './model/service/auth-interceptor';
+import { AccountFilter } from './views/account/accout-filter.pipe';
+import { AccountComponent } from './views/account/account.component';
+import { AuthInterceptor } from './model/service/auth-interceptor.service';
 import { RoomTypeFormComponent } from './views/hotel/hotel-detail/room-type/room-type-form/room-type-form.component';
 import { RoomFormComponent } from './views/hotel/building/floor/room/room-form/room-form.component';
 import { FloorComponent } from './views/hotel/building/floor/floor.component';
@@ -16,7 +18,6 @@ import { HeaderComponent } from './views/header/header.component';
 import { FooterComponent } from './views/footer/footer.component';
 import { SignInComponent } from './views/account/sign-in/sign-in.component';
 import { SignUpComponent } from './views/account/sign-up/sign-up.component';
-import { HotelManagementComponent } from './views/hotel-management/hotel-management.component';
 import { BuildingComponent } from './views/hotel/building/building.component';
 import { BuildingFormComponent } from './views/hotel/building/building-form/building-form.component';
 import { RoomComponent } from './views/hotel/building/floor/room/room.component';
@@ -26,6 +27,7 @@ import { RoomTypeDetailComponent } from './views/hotel/hotel-detail/room-type/ro
 @NgModule({
   declarations: [
     AppComponent,
+    AccountComponent,
     HotelComponent,
     HotelFormComponent,
     HotelDetailComponent,
@@ -33,7 +35,6 @@ import { RoomTypeDetailComponent } from './views/hotel/hotel-detail/room-type/ro
     FooterComponent,
     SignInComponent,
     SignUpComponent,
-    HotelManagementComponent,
     BuildingComponent,
     BuildingFormComponent,
     FloorComponent,
@@ -41,7 +42,8 @@ import { RoomTypeDetailComponent } from './views/hotel/hotel-detail/room-type/ro
     RoomFormComponent,
     RoomTypeComponent,
     RoomTypeFormComponent,
-    RoomTypeDetailComponent
+    RoomTypeDetailComponent,
+    AccountFilter
   ],
   imports: [
     BrowserModule,

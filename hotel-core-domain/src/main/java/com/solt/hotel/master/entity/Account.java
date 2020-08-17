@@ -30,8 +30,8 @@ public class Account implements Serializable{
 	private String password;
 
 	@Enumerated(EnumType.STRING)
-	private Role role = Role.Admin;
-	private boolean enable;
+	private Role role;
+	private boolean enable = true;
 
 	public enum Role {
 		Admin,

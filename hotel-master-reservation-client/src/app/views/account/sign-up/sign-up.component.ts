@@ -1,8 +1,8 @@
-import { AccountService } from './../../../model/service/account.service';
 import { Account } from './../../../model/dto/account';
+import { Router } from '@angular/router';
+import { AccountService } from './../../../model/service/account.service';
 import { Component, OnInit } from '@angular/core';
-import { Message } from '@angular/compiler/src/i18n/i18n_ast';
-import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-up',
@@ -10,16 +10,23 @@ import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent implements OnInit {
-  
 
-  constructor(private accountService: AccountService) { }
+  roles = ['Admin', 'Manager', 'Staff', 'Agent', 'Customer']
+  account: Account;
+
+  constructor(private accountService: AccountService, private router: Router) { }
 
   ngOnInit(): void {
-    
+    this.account = history.state.account;
   }
 
   singup(signUpForm: NgForm){
-      this.accountService.save(signUpForm.value).subscribe(() => signUpForm.reset());
+    if(this.account) signUpForm.value.login = this.account.login
+     this.accountService.save(signUpForm.value).subscribe(() => {
+       this.account = null;
+       signUpForm.reset();
+       this.router.navigate(['/account'])
+     });
   }
   
 }

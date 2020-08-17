@@ -1,1 +1,5 @@
-
+.hotel-image, img{
+    width: 530px;
+    height: 320px;
+    object-fit: cover;
+}

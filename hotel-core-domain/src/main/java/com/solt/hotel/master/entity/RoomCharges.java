@@ -34,14 +34,7 @@ public class RoomCharges implements Serializable{
 	@ManyToOne
 	private RoomType roomType;
 
-	private Nationality nationality;
-
 	private Type type;
-
-	public enum Nationality {
-		Foreign,
-		Local
-	}
 
 	public enum Type {
 		Normal,

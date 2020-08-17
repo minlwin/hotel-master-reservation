@@ -25,7 +25,7 @@ public class Facility implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
-	@Column(unique = true, nullable = false)
+	@Column(nullable = false)
 	private String title;
 
 	@ElementCollection

@@ -1,5 +1,7 @@
+import { HotelService } from 'src/app/model/service/hotel.service';
+import { switchMap } from 'rxjs/operators';
+import { ImageUploadService } from './../../../../../model/service/image-upload.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { HotelService } from './../../../../../model/service/hotel.service';
 import { RoomTypeService } from './../../../../../model/service/room-type.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormArray, FormBuilder, Validators } from '@angular/forms';
@@ -13,13 +15,18 @@ import { Hotel } from '../../../../../model/dto/hotel';
 export class RoomTypeFormComponent implements OnInit {
 
   roomTypeForm: FormGroup;
-  hotel: Hotel
+  hotel: Hotel;
+  photos: string[] = [];
+  hotels: Hotel[];
 
-  constructor(private fb: FormBuilder,
+  constructor(private fb: FormBuilder, private uploadService: ImageUploadService, private hotelService: HotelService,
     private roomTypeService: RoomTypeService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.hotel = history.state.hotel
+
+    this.hotelService.findAll().subscribe(hotels => this.hotels = hotels)
+
     this.initForm();
   }
 
@@ -27,30 +34,29 @@ export class RoomTypeFormComponent implements OnInit {
     return this.roomTypeForm.get('facilities') as FormArray
   }
 
-  subFacilities(parentIndex) {
-    return this.roomTypeFacilities.controls[parentIndex].get('facilities') as FormArray;
+  preview(files: File[]) {
+    this.photos = [];
+    [...files].forEach(file => this.readFile(file))
   }
 
-  addFacility() {
-    this.roomTypeFacilities.push(this.fb.group({
-      title: [''],
-      logo: [''],
-      facilities: this.fb.array([]),
-
-    }))
+  private readFile(file: File) {
+    let reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = () => this.photos.push(reader.result as string);
   }
 
-  addSubFacility(parentIndex) {
-    this.subFacilities(parentIndex).push(this.fb.control(''))
+  get facilities(){
+    return this.roomTypeForm.get('facilities') as FormArray
   }
 
-  removeFacility(index) {
-    this.roomTypeFacilities.removeAt(index)
+  addFacility(){
+    this.facilities.push(this.fb.control(''))
   }
 
-  removeSubFacility(parentIndex, childIndex) {
-    this.subFacilities(parentIndex).removeAt(childIndex)
+  removeFacility(index){
+    this.facilities.removeAt(index);
   }
+
   get roomCharges() {
     return this.roomTypeForm.get('charges') as FormArray
   }
@@ -59,7 +65,6 @@ export class RoomTypeFormComponent implements OnInit {
     this.roomCharges.push(this.fb.group({
       charges: [''],
       currency: [''],
-      nationality: [''],
       type: [''],
     }))
   }
@@ -70,6 +75,7 @@ export class RoomTypeFormComponent implements OnInit {
 
   private initForm() {
     this.roomTypeForm = this.fb.group({
+      hotel: [this.hotel],
       name: ['', Validators.required],
       bedType: ['', Validators.required],
       beds: ['', Validators.required],
@@ -78,14 +84,15 @@ export class RoomTypeFormComponent implements OnInit {
     })
   }
 
-  save() {
+  save(files: File[]) {
     let roomType = this.roomTypeForm.value;
-    roomType.hotel = this.hotel;
-    this.roomTypeService.save(roomType).subscribe(() => {
-      this.roomTypeForm.reset();
-      this.router.navigate(['../../'], {relativeTo: this.route})
-    })
+    this.uploadService.upload(...files).pipe(
+      switchMap(
+        photos => {
+          roomType.photos = photos;
+          return this.roomTypeService.save(roomType)
+        }
+      )
+    ).subscribe(rt => this.router.navigate(['/hotel', rt.hotel.code]))
   }
-
-
 }

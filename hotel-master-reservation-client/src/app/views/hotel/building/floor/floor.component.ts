@@ -10,14 +10,17 @@ import { Component, OnInit } from '@angular/core';
 export class FloorComponent implements OnInit {
 
   building: Building;
+  currentIndex: number;
 
   constructor(private roomService: RoomService) { }
 
   ngOnInit(): void {
     this.building = history.state.building
+    this.roomService.floorChanged.next(this.building.floors[0])
   }
  
-  onSelectFloor(floor){
+  onSelectFloor(index, floor){
+    this.currentIndex = index;
     this.roomService.floorChanged.next(floor);
   }
 }

@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-4 border border-green">
-            <h3 class="text-center">Sign-Up</h3>
+            <h3 class="text-center">{{account ? 'Update' : 'Create New'}} Account</h3>
             <hr>
             <form (ngSubmit)="singup(signUpForm)" #signUpForm="ngForm">
                 <div class="form-group">
@@ -12,8 +12,8 @@
                                 <i class="fa fa-user"></i>
                             </div>
                         </div>
-                        <input type="id" placeholder="Enter your id/name" class="form-control" ngModel name="login"
-                            required #id="ngModel">
+                        <input type="id" placeholder="Enter your LoginID" class="form-control" [ngModel]="account?.login" name="login"
+                            required [disabled]="account">
                     </div>
                 </div>
 
@@ -28,37 +28,21 @@
                         <input type="password" placeholder="Enter your password" class="form-control" ngModel password
                             name="password" required #password="ngModel">
                     </div>
-                    <span *ngIf="password.errors?.password" class="text-danger">Wrong is password</span><br>
                     <span *ngIf="password.invalid && password.touched" class="text-danger">password is required</span>
                 </div>
-
                 <div class="form-group">
-                    <label for="">Confirm password</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text">
-                                <i class="fa fa-key"></i>
-                            </div>
-                        </div>
-                        <input type="password" placeholder="Enter your confrim password" class="form-control"
-                            ngModel confirmpassword name="confirmpassword" required #confirmpassword="ngModel">
-                    </div>
-                    <span *ngIf="confirmpassword.errors?.confirmpassword" class="text-danger">Wrong is
-                        confirmpassword</span>
-                    <span *ngIf="confirmpassword.invalid && confirmpassword.touched" class="text-danger">Confirmpassword
-                        is required</span>
+                    <label for="">Role</label>
+                    <select name="" id="" class="form-control" [ngModel]="account?.role" name="role">
+                        <option *ngFor="let role of roles" [value]="role" >{{role}}</option>
+                    </select>
                 </div>
-
+                <div class="form-check mb-2" *ngIf="account">
+                    <input type="checkbox" class="form-check-input" [ngModel]="account?.enable" name="enable">
+                    <label for="" class="form-check-label">Enable</label>
+                </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-block btn-primary" [disabled]="!signUpForm.valid">Sign
-                        Up</button>
+                    <button type="submit" class="btn btn-block btn-success" >Save</button>
                 </div>
-
-                <div class="container signin">
-                    <p>Already have an account? <a [routerLink]="['/sign-in']" routerLinkActive="router-link-active"
-                            class="normal">Sign in</a></p>
-                </div>
-
             </form>
         </div>
     </div>

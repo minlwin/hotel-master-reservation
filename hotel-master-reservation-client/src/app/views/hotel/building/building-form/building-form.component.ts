@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Hotel } from 'src/app/model/dto/hotel';
 import { HotelService } from 'src/app/model/service/hotel.service';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-building-form',
@@ -13,6 +14,7 @@ export class BuildingFormComponent implements OnInit {
 
   hotel: Hotel;
   building: any;
+  hotels: Hotel[];
 
   constructor(private hotelService: HotelService, private buildingService: BuildingService, 
     private router: Router, private route: ActivatedRoute) { }
@@ -20,6 +22,8 @@ export class BuildingFormComponent implements OnInit {
   ngOnInit(): void {
     this.hotel = history.state.hotel
     this.building = history.state.building
+
+    this.hotelService.findAll().subscribe(hotels => this.hotels = hotels)
 
     if(this.building)
       this.hotel = this.building.hotel
@@ -37,7 +41,6 @@ export class BuildingFormComponent implements OnInit {
     
     if(this.building) building.code = this.building.code
 
-    building.hotel = this.hotel;
-    this.buildingService.save(building).subscribe(() => this.router.navigate(['../../'], { relativeTo: this.route }))
+    this.buildingService.save(building).subscribe(b => this.router.navigate(['/hotel', b.hotel.code]))
   }
 }

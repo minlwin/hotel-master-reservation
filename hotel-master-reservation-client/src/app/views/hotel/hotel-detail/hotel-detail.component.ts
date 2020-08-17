@@ -13,7 +13,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HotelDetailComponent implements OnInit {
 
-  hotel: Hotel
+  hotel: Hotel;
 
   constructor(public authService: AuthService,private hotelService: HotelService, private route: ActivatedRoute) { }
 

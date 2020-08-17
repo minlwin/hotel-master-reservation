@@ -1,7 +1,10 @@
-package com.solt.hotel.master.config;
+package com.solt.hotel.master.security;
+
+import static com.solt.hotel.master.security.SecurityConstant.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -19,8 +22,6 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.solt.hotel.master.entity.Account;
-
-import static com.solt.hotel.master.config.SecurityConstant.*;
 
 
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
@@ -52,6 +53,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 		
 		String token = JWT.create()
 		.withSubject(user.getUsername())
+		.withExpiresAt(new Date(System.currentTimeMillis() + ExPIRATION_TIME))
 		.sign(Algorithm.HMAC512(SECRECT_KEY.getBytes()));
 		
 		response.setHeader("Access-Control-Expose-Headers", "Authorization, role");

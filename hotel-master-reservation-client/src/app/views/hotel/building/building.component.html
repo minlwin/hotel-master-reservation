@@ -1,10 +1,10 @@
 <div class="row w-100 justify-content-between">
     <h3>Building List</h3>
-    <button class="btn btn-success rounded-pill" style="width: 100px;" [routerLink]="['./building/new']" [state]="{hotel: hotel}"><i class="fa fa-plus"></i> New</button>
+    <button class="btn btn-success rounded-pill" style="width: 100px;" [routerLink]="['/building']" [state]="{hotel: hotel}"><i class="fa fa-plus"></i> New</button>
 </div>
 <hr>
 <div class="row w-100">
-    <div class="card col-lg-5 m-1" *ngFor="let b of buildings" [routerLink]="['./building', b.code, 'floor']" [state]="{building: b}">
+    <div class="card " *ngFor="let b of buildings" [routerLink]="['/building', b.code, 'floor']" [state]="{building: b}">
         <div class="card-body">
             <div class="row w-100 justify-content-between">
                 <h5 class="ml-2">{{b.name}}</h5>

@@ -1,10 +1,10 @@
 <div class="row justify-content-center">
-    <h3 class="text-center text-uppercase">Hotel Form</h3>
+    <h3 class="w-100 text-center text-uppercase">Hotel Form</h3>
     <div *ngIf="photos.length > 0" class="hotel-image mb-2">
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item" [ngClass]="{'active': i === 0}" *ngFor="let photo of photos; let i=index">
-                    <img class="d-block w-100" [src]="photo" alt="i">
+                    <img class="d-block" [src]="photo" alt="i">
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -46,16 +46,16 @@
             </div>
             <div class="form-row mb-2">
                 <div class="col-md-8">
-                    <label for="">Phone
-                        <span class="abstract-required" style="color:rgb(43, 22, 231)">(*)</span>
-                    </label>
-                    <input type="tel" class="form-control" formControlName="phone">
-                </div>
-                <div class="col-md-4">
                     <label for="">Email
                         <span class="abstract-required" style="color:rgb(43, 22, 231)">(*)</span>
                     </label>
                     <input type="email" class="form-control" formControlName="email" required>
+                </div>
+                <div class="col">
+                    <label for="">Phone
+                        <span class="abstract-required" style="color:rgb(43, 22, 231)">(*)</span>
+                    </label>
+                    <input type="tel" class="form-control" formControlName="phone" required>
                 </div>
             </div>
             <div class="form-group">
@@ -73,7 +73,7 @@
                 <label for="">Location
                     <span class="abstract-required" style="color:rgb(43, 22, 231)">(*)</span>
                 </label>
-                <input type="text" class="form-control" formControlName="location" name="location" required>
+                <textarea class="form-control" cols="30" rows="2" formControlName="location" name="location" required></textarea>
                 <span *ngIf="hotelForm.controls.location.errors && hotelForm.controls.location.touched"
                     style="color:red">*Location is required</span>
             </div>
@@ -89,7 +89,7 @@
                 <div class="card mb-2" *ngFor="let hfc of hotelFacilities.controls;  let parentIndex=index;"
                     [formGroupName]="parentIndex">
                     <div class="form-row p-2">
-                        <div class="col-1 offset-11">
+                        <div *ngIf="!parentIndex == 0" class="col-1 offset-11">
                             <span (click)="removeFacility(parentIndex)"><i class="fa fa-times"></i></span>
                         </div>
                         <div class="col-12">

@@ -5,7 +5,9 @@
         <form #f="ngForm">
             <div class="form-group">
                 <label for="">Hotel</label>
-                <input type="text" class="form-control" [value]="hotel.name" disabled>
+               <select name="" id="" class="form-control" [ngModel]="hotel" name="hotel">
+                   <option *ngFor="let hotel of hotels" [ngValue]="hotel">{{hotel.name}}</option>
+               </select>
             </div>
             <div class="form-group">
                 <label for="">Name</label>

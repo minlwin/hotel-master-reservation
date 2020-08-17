@@ -5,8 +5,8 @@
 <div class="row w-100">
     <div class="col-lg-3">
         <ul class="list-group">
-            <li class="list-group-item list-group-item-action" *ngFor="let f of building.floors" (click)="onSelectFloor(f)">
-                {{f.name}}
+            <li class="list-group-item list-group-item-action" [ngClass]="{'active': currentIndex === i}" *ngFor="let floor of building.floors; let i=index" (click)="onSelectFloor(i,floor)">
+                {{floor.name}}
             </li>
         </ul>
     </div>

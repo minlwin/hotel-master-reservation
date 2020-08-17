@@ -23,20 +23,23 @@ export class HotelFormComponent implements OnInit {
     private hotelService: HotelService) { }
 
   ngOnInit(): void {
-
     this.intiForm()
-  
   }
 
   private intiForm() {
     this.hotelForm = this.fb.group({
       name: ['', Validators.required],
       ranking: ['', Validators.required],
-      phone: '',
-      email: '',
+      phone: ['', Validators.required],
+      email: ['', Validators.required],
       description: ['', Validators.required],
       location: ['', Validators.required],
-      facilities: this.fb.array([], Validators.required)
+      facilities: this.fb.array([
+        this.fb.group({
+          title: ['', Validators.required],
+          facilities: this.fb.array([])
+        })
+      ])
     })
   }
   preview(files: File[]) {

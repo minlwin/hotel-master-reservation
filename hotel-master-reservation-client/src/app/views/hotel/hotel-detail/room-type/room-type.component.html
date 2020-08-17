@@ -1,6 +1,6 @@
 <div class="row w-100 justify-content-between">
     <h3>Room Type</h3>
-    <button *ngIf="authService.isLogin" class="btn btn-success rounded-pill new-btn" [routerLink]="['./room-type/new']"
+    <button *ngIf="authService.isLogin" class="btn btn-success rounded-pill new-btn" [routerLink]="['/room-type']"
         [state]="{hotel: hotel}"><i class="fa fa-plus"></i> New</button>
 </div>
 <hr/>
@@ -19,7 +19,7 @@
                 <td class="text-capitalize">{{type.name}}</td>
                 <td class="text-capitalize">{{type.bedType}}</td>
                 <td class="text-right">{{type.beds}}</td>
-                <td class="text-center"><a (click)="showDetail(type)" style="cursor: pointer; color: blue;">View</a></td>
+                <td class="text-center"><a (click)="showDetail(type)" style="cursor: pointer; color: blue;">Show More</a></td>
             </tr>
         </tbody>
     </table>

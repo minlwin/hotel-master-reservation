@@ -1,24 +1,34 @@
 <nav class="navbar navbar-expand-md navbar-light bg-secondary fixed-top">
-    <a class="navbar-brand" [routerLink]="['/hotel']">Home</a>
+    <a class="navbar-brand" [routerLink]="['/hotel']">
+        <img class="rounded-circle" src="../../../assets/hotel-logo.png" alt="" width="50" height="45">
+        HOTEL RESERVATION
+    </a>
     <button class="navbar-toggler bg-white" type="button" data-toggle="collapse" data-target="#navbarCollapse"
         aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav">
-            <li class="nav-item" *ngIf="authService.isLogin">
-                <a href="" class="nav-link"><i class="fa fa-users"></i> Account Management</a>
+            <li class="nav-item">
+                <a routerLink="/hotel" class="nav-link"> Home</a>
             </li>
         </ul>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item" *ngIf="authService.isLogin">
-                <a [routerLink]="['/hotel/create']" class="nav-link "><i class="fa fa-plus "></i> New Hotel</a>
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cogs"></i> Manage</a>
+                <div class="dropdown-menu dropdown-menu-right bg-secondary">
+                    <a [routerLink]="['/hotel/create']" class="dropdown-item text-white"><i class="fa fa-plus"></i> New Hotel</a>
+                    <a [routerLink]="['/building']" class="dropdown-item text-white"><i class="fa fa-building"></i> New Building</a>
+                    <a [routerLink]="['/room-type']" class="dropdown-item text-white"><i class="fa fa-list"></i> New RoomType</a>
+                    <a [routerLink]="['/account']" class="dropdown-item text-white"><i class="fa fa-users"></i> Account</a>
+                </div>
+                
             </li>
-            <li class="nav-item" *ngIf="!authService.isLogin">
-                <a routerLink="/sign-in" class="nav-link"><i class="fa fa-sign-in"></i> LogIn</a>
+            <li class="nav-item" *ngIf="!authService.isLogin" (click)="signIn()">
+                <a  class="nav-link"><i class="fa fa-sign-in"></i> Sign in</a>
             </li>
-            <li class="nav-item" *ngIf="authService.isLogin" (click)="authService.logOut()" style="cursor: pointer;">
-                <a class="nav-link"><i class="fa fa-sign-out"></i> LogOut</a>
+            <li class="nav-item" *ngIf="authService.isLogin" (click)="signOut()">
+                <a class="nav-link"><i class="fa fa-sign-out"></i> Sign Out</a>
             </li>
         </ul>
     </div>

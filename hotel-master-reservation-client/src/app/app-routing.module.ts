@@ -1,6 +1,6 @@
+import { AuthGuard } from './model/common/auth-guard.service';
+import { AccountComponent } from './views/account/account.component';
 import { FloorComponent } from './views/hotel/building/floor/floor.component';
-import { BuildingComponent } from './views/hotel/building/building.component';
-import { HotelManagementComponent } from './views/hotel-management/hotel-management.component';
 import { SignUpComponent } from './views/account/sign-up/sign-up.component';
 import { SignInComponent } from './views/account/sign-in/sign-in.component';
 import { HotelDetailComponent } from './views/hotel/hotel-detail/hotel-detail.component';
@@ -14,22 +14,17 @@ import { RoomTypeFormComponent } from './views/hotel/hotel-detail/room-type/room
 
 const routes: Routes = [
   { path: '', redirectTo: '/hotel', pathMatch: 'full' },
-  { path: 'hotel', component: HotelComponent },
-  {
-    path: 'hotel-management', component: HotelManagementComponent, children: [
-      {path: '', component: BuildingComponent},
-      {path: 'building/new', component: BuildingFormComponent},
-      
-    ]
-  },
-  { path: 'hotel/create', component: HotelFormComponent },
-  { path: 'hotel/:code', component: HotelDetailComponent },
-  { path : 'hotel/:code/building/new', component: BuildingFormComponent},
-  { path: 'hotel/:code/building/:code/floor', component: FloorComponent },
-  { path: 'hotel/:code/room-type/new', component: RoomTypeFormComponent },
-  { path: 'hotel/:id/edit', component: HotelFormComponent },
   { path: 'sign-in', component: SignInComponent },
-  { path: 'sign-up', component: SignUpComponent },
+  { path: 'account', component: AccountComponent, canActivate: [AuthGuard] },
+  { path: 'account/create', component: SignUpComponent },
+  { path: 'account/edit', component: SignUpComponent },
+  { path: 'hotel', component: HotelComponent},
+  { path: 'hotel/create', component: HotelFormComponent, canActivate: [AuthGuard] },
+  { path: 'hotel/:code', component: HotelDetailComponent },
+  { path: 'hotel/:id/edit', component: HotelFormComponent },
+  { path: 'building', component: BuildingFormComponent, canActivate: [AuthGuard]},
+  { path: 'building/:code/floor', component: FloorComponent, canActivate: [AuthGuard] },
+  { path: 'room-type', component: RoomTypeFormComponent },
   { path: '**', redirectTo: '/hotel', pathMatch: 'full' }
 ];
 

@@ -38,12 +38,12 @@ public class RoomType implements Serializable{
 	@ElementCollection
 	private List<String> photos;
 
-	@OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = true)
-	private List<Facility> facilities = new ArrayList<>();
-
+	@ElementCollection
+	private List<String> facilities;
+	
 	@OneToMany(mappedBy = "roomType", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = true)
 	private List<RoomCharges> charges = new ArrayList<>();
-	
+
 	public void setCharges(List<RoomCharges> charges) {
 		this.charges = charges;
 		this.charges.forEach(charge -> charge.setRoomType(this));

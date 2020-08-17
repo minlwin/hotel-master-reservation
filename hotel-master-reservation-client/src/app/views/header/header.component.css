@@ -1,3 +1,23 @@
 *{
     color: white !important;
 }
+
+a{
+    cursor: pointer;
+}
+
+.nav-link{
+    font-size: 18px;
+}
+
+.dropdown-menu{
+    right: 20px;
+}
+
+.dropdown-menu > * {
+    color: white !important;
+}
+
+.dropdown-item:hover{
+    background-color: gray;
+}

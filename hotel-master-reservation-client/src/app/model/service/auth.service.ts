@@ -12,7 +12,7 @@ export class AuthService{
     private _isLogin = false;
     private _role;
     private _token;
-    private  _loginUser;
+    activeUrl: string;
 
     constructor(private http: HttpClient){}
 

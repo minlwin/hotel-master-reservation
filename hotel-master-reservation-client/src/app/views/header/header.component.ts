@@ -14,10 +14,12 @@ export class HeaderComponent implements OnInit {
     
   }
   signIn(){
-    this.router.navigate(['sign-in'],{relativeTo:this.route});
+    this.authService.activeUrl = this.router.url
+    this.router.navigate(['/sign-in']);
 
   }
-  signUp(){
-    this.router.navigate(['sign-up'],{relativeTo:this.route});
+  signOut(){
+    this.authService.logOut();
+    this.router.navigate(['/hotel'])
   }
 }

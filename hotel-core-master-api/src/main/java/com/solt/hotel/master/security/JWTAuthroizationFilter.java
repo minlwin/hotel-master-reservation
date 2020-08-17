@@ -1,6 +1,6 @@
-package com.solt.hotel.master.config;
+package com.solt.hotel.master.security;
 
-import static com.solt.hotel.master.config.SecurityConstant.*;
+import static com.solt.hotel.master.security.SecurityConstant.*;
 
 import java.io.IOException;
 import java.util.ArrayList;

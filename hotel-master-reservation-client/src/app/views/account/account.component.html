@@ -1,5 +1,41 @@
-<div class="row w-100 justify-content-center">
-    <div class="col-lg-8">
-        
+<section class="vh-100">
+    <div class="row w-100 justify-content-between">
+        <div class="col-6">
+           <div class="form-row">
+                <div class="col-5">
+                    <input type="text" class="form-control" [(ngModel)]="login" placeholder="Search By LoginID">
+                </div>
+                <div class="col-7">
+                    <div class="form-row align-items-center">
+                        <div class="col-auto">
+                            <label for="">Filter By : </label>
+                        </div>
+                        <div class="col-auto">
+                            <select name="" id="" class="form-control" [(ngModel)]="role">
+                                <option value=""></option>
+                                <option *ngFor="let role of roles" [value]="role">{{role}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+           </div>
+        </div>
+        <div>
+            <button routerLink="/account/create" class="btn btn-success rounded-pill" style="width: 100px;"><i class="fa fa-plus"></i> New</button>
+        </div>
     </div>
-</div>
+    <hr>
+    <div class="row pl-3">
+        <div class="card rounded px-2 mr-2" *ngFor="let account of accounts | accountFilter:login:role">
+            <div class="card-body">
+                <div class="row justify-content-between">
+                    <p><strong>Login ID : </strong>{{account.login}}</p>
+                    <span routerLink="/account/edit" [state]="{account: account}" style="cursor: pointer;"><i class="fa fa-edit"></i></span>
+                </div>
+                <div class="row">
+                    <p><strong>Role : </strong>{{account.role}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

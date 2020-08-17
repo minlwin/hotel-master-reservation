@@ -23,31 +23,24 @@
                             <option *ngFor="let type of roomTypes" [ngValue]="type">{{type.name}}</option>
                         </select>
                     </div>
-                    <div class=" form-row mt-3 mb-3">
-                        <div class="col-6">
-                            <label for="">Photo</label>
-                            <input type="file" class="form-control-file" accept="image/*" multiple (change)="preview(fc.files)" #fc>
-                        </div>
-                    </div>
                     <div formArrayName="others">
                         <div class="form-row mt-3 mb-3 " *ngFor="let room of othersControl.controls; let i=index">
-                            <div class=" col-6 ">
+                            <div class=" col-10">
                                 <input type="text " class="form-control " placeholder="Description " [formControlName]="i">
                             </div>
 
-                            <div class="col-2 ">
+                            <div class="col-2">
                                 <button class="btn btn-danger " (click)="removeOther(i) ">&times;</button>
                             </div>
                         </div>
                     </div>
                     <div class="form-group ">
-                        <button class="btn btn-secondary " (click)=addOther()>Add Other</button>
+                        <button class="btn btn-primary " (click)=addOther()>Add Other</button>
                     </div>
-
                 </form>
             </div>
-            <div class="modal-footer ">
-                <button type="button " class="btn btn-info " (click)="save(fc.files) ">Save</button>
+            <div class="modal-footer">
+                <button class="btn btn-success btn-block" (click)="save() ">Save</button>
             </div>
         </div>
     </div>

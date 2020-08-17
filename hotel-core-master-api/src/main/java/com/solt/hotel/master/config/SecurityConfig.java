@@ -13,6 +13,9 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import com.solt.hotel.master.security.JWTAuthenticationFilter;
+import com.solt.hotel.master.security.JWTAuthroizationFilter;
+
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
@@ -33,7 +36,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	protected void configure(HttpSecurity http) throws Exception {
 		http.cors().and().csrf().disable()
 			.authorizeRequests()
-			.antMatchers("/images", "/v2/api-docs", "/configuration/**", "/swagger*/**", "/webjars/**").permitAll()
+			.antMatchers("/v2/api-docs", "/configuration/**", "/swagger*/**", "/webjars/**").permitAll()
 			.antMatchers(HttpMethod.GET, "/hotel/**", "/room-type/**").permitAll()
 			.anyRequest().authenticated()
 			.and()

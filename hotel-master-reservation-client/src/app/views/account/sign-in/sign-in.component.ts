@@ -1,3 +1,4 @@
+import { NgForm } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from './../../../model/service/auth.service';
 import { Component, OnInit } from '@angular/core';
@@ -9,15 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignInComponent implements OnInit {
 
+  errorMessage: string;
+
   constructor(private authService: AuthService, 
     private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
   }
-  singin(formData){
-    this.authService.login(formData).subscribe({
-      next: next => this.router.navigate(['/hotel']),
+
+  signIn(signInForm: NgForm){
+    this.errorMessage = null;
+    this.authService.login(signInForm.value).subscribe({
+      error: error => this.errorMessage = 'Login ID or Password Incorrect. Please try again!!!',
+      complete: () => {
+        this.router.navigate([this.authService.activeUrl]);
+        this.authService.activeUrl = null;
+      },
     });
+
+    signInForm.reset();
   }
 
 }
