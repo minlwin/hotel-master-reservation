@@ -60,6 +60,7 @@ export class RoomFormComponent implements OnInit {
     room.others = other;
     room.floor = this.floor;
     this.roomService.save(room).subscribe(() => {
+      this.roomForm.reset();
       this.createdRoom.emit();
       $('#modalAddNewRoom').modal('hide');
     })
